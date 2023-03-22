@@ -21,15 +21,17 @@ function Modals({ menu, searchbar }: Props) {
   return (
     <>
       <Modal
-        title="Menu"
+        // title="Menu"
         mode="sidebar-left"
         loading="lazy"
         open={displayMenu.value}
         onClose={() => {
           displayMenu.value = false;
         }}
+        class="w-4/5"
       >
         <Suspense fallback={<Loading />}>
+          <Searchbar {...searchbar} />
           <Menu {...menu} />
         </Suspense>
       </Modal>

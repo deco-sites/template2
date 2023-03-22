@@ -30,7 +30,7 @@ function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="icon-hamburger" width={20} height={20} strokeWidth={0.01} />
     </Button>
   );
 }
@@ -50,9 +50,9 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <Icon id="icon-cart" width={28} height={25} strokeWidth={2} class="h-[2.8rem]" />
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] right-0 -top-[8px] rounded-full w-4 h-4 flex items-center justify-center">
           {totalItems}
         </span>
       )}

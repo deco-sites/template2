@@ -453,6 +453,14 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "LogoTemplateDois",
                     },
+                    {
+                      "type": "string",
+                      "const": "icon-cart",
+                    },
+                    {
+                      "type": "string",
+                      "const": "icon-hamburger",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -659,6 +667,14 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "LogoTemplateDois",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-cart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-hamburger",
                               },
                             ],
                             "title": "Icon",
