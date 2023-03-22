@@ -1,7 +1,7 @@
 {
-    "name": "Fashion | Deco",
-    "short_name": "Fashion",
-    "theme_color": "#8c3d3d",
+    "name": "Template 2",
+    "short_name": "Template2",
+    "theme_color": "#8a4f7d",
     "background_color": "#ffffff",
     "display": "browser",
     "scope": "/",

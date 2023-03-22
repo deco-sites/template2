@@ -449,6 +449,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "WhatsApp",
                     },
+                    {
+                      "type": "string",
+                      "const": "LogoTemplateDois",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -651,6 +655,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "WhatsApp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "LogoTemplateDois",
                               },
                             ],
                             "title": "Icon",
