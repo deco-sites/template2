@@ -82,6 +82,10 @@ const options: Omit<Options, "selfURL"> = {
 				body: ["16px", "20px"],
 				caption: ["13px", "16px"],
 				"list-price": ["10px", "20px"],
+				title: ["38px", "1.2"],
+				"title-desktop": ["45.6px", "1.2"],
+				description: ["16px", "1.5"],
+				"description-desktop": ["19.2px", "1.5"],
 			},
 			fontWeight: {
 				"heading-1": "500",
@@ -94,7 +98,8 @@ const options: Omit<Options, "selfURL"> = {
 				caption: "400",
 				"list-price": "400",
 				title: "900",
-        subtitle: "600"
+        subtitle: "600",
+				description: "400"
 			},
 			animation: {
 				"slide-left": "slide-left-frame 0.4s ease normal",
@@ -195,6 +200,19 @@ const options: Omit<Options, "selfURL"> = {
 				"radial-gradient(circle,transparent 20%, #fff 20%,#fff  80%,transparent 80%,transparent),radial-gradient(circle,transparent 20%,#fff  20%,#fff  80%,transparent 80%,transparent) 25px 25px,linear-gradient(#efefef 2px,transparent 2px) 0 -1px,linear-gradient(90deg,#efefef 2px,#fff  2px) -1px 0",
 			"background-size": "50px 50px,50px 50px,25px 25px,25px 25px",
 		},
+		"fit-content":{
+			"width": "fit-content"
+		},
+		"transform-center": {
+			"left": "50%",
+			"transform": "translateX(-50%)"
+		},
+		"transform-none": {
+			"transform": "translate(0,0)"
+		},
+		"max-width-header": {
+			"max-width": "calc(1368px + 10%)"
+		}
 	},
 };
 

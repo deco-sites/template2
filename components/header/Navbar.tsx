@@ -38,7 +38,7 @@ function Navbar({
 			</div>
 
 			{/* Desktop Version */}
-			<div class="hidden md:flex flex-row justify-end items-center border-b-1 border-default w-full pl-2 pr-3">
+			<div class="hidden md:flex flex-row justify-end items-center border-b-1 border-default w-full px-[5%] max-width-header">
 				<div class="flex justify-center items-center">
 					{items.map((item, index) => {
 						if (index === Math.ceil(items.length / 2)) {

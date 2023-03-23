@@ -257,7 +257,10 @@ const manifest: DecoManifest = {
                       "title": "Sub Title",
                     },
                     "label": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null",
+                      ],
                       "title": "Label",
                     },
                   },
@@ -265,7 +268,6 @@ const manifest: DecoManifest = {
                     "href",
                     "title",
                     "subTitle",
-                    "label",
                   ],
                 },
               },
