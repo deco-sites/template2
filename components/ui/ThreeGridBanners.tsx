@@ -41,7 +41,7 @@ function BannerItem(props: GridBanner) {
 						height={391}
 					/>
 					<img
-						class="object-cover w-full sm:h-full transition ease-in-out duration-300 group-hover:scale-150 group-hover:blur-sm"
+						class="object-cover w-full sm:h-full transition ease-in-out duration-500 group-hover:scale-150 group-hover:blur-sm"
 						loading={"lazy"}
 						src={desktop}
 						alt={alt}
@@ -73,7 +73,7 @@ export interface Props {
 
 export default function ThreeGridBanners({gridBanners}: Props) {
   return (
-    <div class="flex gap-[20px] flex-col mt-20 w-full max-content mx-auto px-[5%] sm:flex-row">
+    <div class="flex gap-[20px] flex-col mt-20 w-full max-content mx-auto px-[5%] sm:flex-row mb-14">
       {
         gridBanners.map((banner) => <BannerItem {...banner}/>)
       }
