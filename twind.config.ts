@@ -212,6 +212,12 @@ const options: Omit<Options, "selfURL"> = {
 		},
 		"max-width-header": {
 			"max-width": "calc(1368px + 10%)"
+		},
+		"max-content": {
+			"max-width": "calc(1368px + 10%)"
+		},
+		"blur-sm": {
+			"filter": "blur(4px)"
 		}
 	},
 };
