@@ -36,7 +36,8 @@ export type AvailableIcons =
   | "WhatsApp"
   | "LogoTemplateDois"
   | "icon-cart"
-  | "icon-hamburger";
+  | "icon-hamburger"
+  | "icon-account" ;
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

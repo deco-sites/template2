@@ -10,7 +10,9 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "price"
     | "section-title"
     | "positive"
-    | "critical";
+    | "critical"
+    | "highlight"
+    | "accent";
   variant?:
     | "heading-1"
     | "heading-2"

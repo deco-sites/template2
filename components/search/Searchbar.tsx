@@ -76,7 +76,7 @@ export type Props = EditableProps & {
 };
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "Buscar",
   action = "/s",
   name = "q",
   query,

@@ -461,6 +461,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "icon-hamburger",
                     },
+                    {
+                      "type": "string",
+                      "const": "icon-account",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -675,6 +679,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "icon-hamburger",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-account",
                               },
                             ],
                             "title": "Icon",
