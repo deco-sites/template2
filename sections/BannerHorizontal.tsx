@@ -18,7 +18,7 @@ export interface Props {
 export default function BannerHorizontal(props: Props){
   const { alt, mobile, desktop, href, title } = props;
   return (
-    <div class="relative max-content overflow-y-hidden px-[5%]">
+    <div class="relative max-content overflow-y-hidden px-[5%] mb-14">
       <a href={href ?? "#"} aria-label={alt}>
         <Picture class="w-full">
           <Source
