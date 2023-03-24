@@ -27,7 +27,11 @@ function Controls({ page }: { page: ProductListingPage }) {
     <div class="flex flex-col justify-between mb-4 md:mb-0 md:p-0 sm:gap-4">
       <div class="w-full background-title h-60 mb-5 flex items-center justify-center">
         <div class="flex w-full px-[5%] items-center justify-center max-content mx-auto">
-          <Text tone="highlight" variant="title" class="font-black text-center sm:text-title-desktop">
+          <Text
+            tone="highlight"
+            variant="title"
+            class="font-black text-center sm:text-title-desktop"
+          >
             Produtos
           </Text>
         </div>

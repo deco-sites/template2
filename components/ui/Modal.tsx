@@ -73,9 +73,7 @@ const Modal = ({
           <h1>
             <Text variant="heading-2">{title}</Text>
           </h1>
-          {
-            headerContent && headerContent
-          }
+          {headerContent && headerContent}
           <Button variant="icon" onClick={onClose}>
             <Icon id="XMark" width={20} height={20} strokeWidth={2} />
           </Button>

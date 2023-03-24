@@ -37,7 +37,7 @@ export type AvailableIcons =
   | "LogoTemplateDois"
   | "icon-cart"
   | "icon-hamburger"
-  | "icon-account" 
+  | "icon-account"
   | "icon-search"
   | "icon-filter";
 

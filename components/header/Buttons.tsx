@@ -14,7 +14,13 @@ function SearchButton() {
         displaySearchbar.value = !displaySearchbar.peek();
       }}
     >
-      <Icon id="icon-search" width={33} height={33} strokeWidth={0.1} class="h-[2.8rem]" />
+      <Icon
+        id="icon-search"
+        width={33}
+        height={33}
+        strokeWidth={0.1}
+        class="h-[2.8rem]"
+      />
     </Button>
   );
 }
@@ -50,7 +56,13 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="icon-cart" width={28} height={25} strokeWidth={2} class="h-[2.8rem]" />
+      <Icon
+        id="icon-cart"
+        width={28}
+        height={25}
+        strokeWidth={2}
+        class="h-[2.8rem]"
+      />
       {totalItems && (
         <span class="absolute text-[9px] right-0 -top-[8px] rounded-full w-4 h-4 flex items-center justify-center">
           {totalItems}
