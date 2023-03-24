@@ -8,6 +8,7 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
+import Text from "../ui/Text.tsx";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -23,11 +24,18 @@ function Controls({ page }: { page: ProductListingPage }) {
   const breadcrumb = page?.breadcrumb;
 
   return (
-    <Container class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row sm:h-[53px] md:border-b-1">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
+    <div class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 md:border-b-1">
+      <div class="w-full background-title h-60 mb-5 flex items-center justify-center">
+        <div class="flex w-full px-[5%] items-center justify-center max-content mx-auto">
+          <Text tone="highlight" variant="title" class="font-black text-center sm:text-title-desktop">
+            Produtos
+          </Text>
+        </div>
+      </div>
+      <div class="flex flex-row items-center max-content sm:p-0 mb-2">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
+      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none md:hidden ">
         <Button
           variant="tertiary"
           onClick={() => {
@@ -37,7 +45,6 @@ function Controls({ page }: { page: ProductListingPage }) {
           Filtrar
           <Icon id="FilterList" width={16} height={16} />
         </Button>
-        <Sort />
       </div>
 
       <Modal
@@ -49,8 +56,9 @@ function Controls({ page }: { page: ProductListingPage }) {
         }}
       >
         <Filters filters={filters} />
+        <Sort />
       </Modal>
-    </Container>
+    </div>
   );
 }
 
