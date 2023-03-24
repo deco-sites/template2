@@ -40,7 +40,7 @@ function BannerIcon(props: BannerIcon) {
 
 export default function BannerIcons({ bannerIcons }: Props) {
 	return (
-		<div class="w-full bg-gray-quaternary">
+		<div class="w-full bg-gray-quaternary mb-14">
 			<div class="max-content mx-auto py-10 px-[5%] w-full flex flex-col justify-between gap-5 sm:(gap-12 flex-row)">
 				{bannerIcons.map((item) => (
 					<BannerIcon {...item} />
