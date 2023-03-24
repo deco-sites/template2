@@ -32,10 +32,10 @@ function Controls({ page }: { page: ProductListingPage }) {
           </Text>
         </div>
       </div>
-      <div class="flex flex-row items-center max-content px-[5%] mb-14">
+      <div class="flex flex-row items-center max-content px-[5%] mb-14 mx-auto w-full md:mb-0">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
-      <div class="flex flex-row max-content px-[5%] items-center md:hidden ">
+      <div class="flex flex-row max-content px-[5%] items-center md:hidden">
         <Button
           variant="quaternary"
           onClick={() => {

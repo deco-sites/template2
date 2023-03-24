@@ -11,6 +11,7 @@ import Icon from "../ui/Icon.tsx";
 
 interface Props {
 	filters: ProductListingPage["filters"];
+	class?: string;
 }
 
 const isToggle = (filter: Filter): filter is FilterToggle =>
@@ -101,9 +102,9 @@ function FilterItem(filter: FilterToggle) {
 	);
 }
 
-export default function Filters({ filters }: Props) {
+export default function Filters({ filters, class: _class = ""  }: Props) {
 	return (
-		<ul class="flex flex-col gap-2 p-4">
+		<ul class={`flex flex-col gap-2 p-4 ${_class}`}>
 			{filters.filter(isToggle).map((filter) => (
 				<FilterItem {...filter} />
 			))}
