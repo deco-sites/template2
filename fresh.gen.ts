@@ -567,6 +567,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "icon-search",
                     },
+                    {
+                      "type": "string",
+                      "const": "icon-filter",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -789,6 +793,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "icon-search",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-filter",
                               },
                             ],
                             "title": "Icon",

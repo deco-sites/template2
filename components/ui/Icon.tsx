@@ -38,7 +38,8 @@ export type AvailableIcons =
   | "icon-cart"
   | "icon-hamburger"
   | "icon-account" 
-  | "icon-search";
+  | "icon-search"
+  | "icon-filter";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

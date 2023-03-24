@@ -24,7 +24,7 @@ function Controls({ page }: { page: ProductListingPage }) {
   const breadcrumb = page?.breadcrumb;
 
   return (
-    <div class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 md:border-b-1">
+    <div class="flex flex-col justify-between mb-4 md:mb-0 md:p-0 sm:gap-4">
       <div class="w-full background-title h-60 mb-5 flex items-center justify-center">
         <div class="flex w-full px-[5%] items-center justify-center max-content mx-auto">
           <Text tone="highlight" variant="title" class="font-black text-center sm:text-title-desktop">
@@ -32,18 +32,19 @@ function Controls({ page }: { page: ProductListingPage }) {
           </Text>
         </div>
       </div>
-      <div class="flex flex-row items-center max-content sm:p-0 mb-2">
+      <div class="flex flex-row items-center max-content px-[5%] mb-14">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none md:hidden ">
+      <div class="flex flex-row max-content px-[5%] items-center md:hidden ">
         <Button
-          variant="tertiary"
+          variant="quaternary"
           onClick={() => {
             open.value = true;
           }}
+          class="w-full font-medium"
         >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
+          <Icon id="icon-filter" width={20} height={20} />
+          Filtros
         </Button>
       </div>
 
