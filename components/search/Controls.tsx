@@ -49,15 +49,17 @@ function Controls({ page }: { page: ProductListingPage }) {
       </div>
 
       <Modal
-        title="Filtrar"
+        title="Filtros"
         mode="sidebar-right"
         open={open.value}
         onClose={() => {
           open.value = false;
         }}
       >
-        <Filters filters={filters} />
-        <Sort />
+        <div class="pb-8">
+          <Filters filters={filters} />
+          <Sort />
+        </div>
       </Modal>
     </div>
   );
