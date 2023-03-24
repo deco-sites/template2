@@ -51,7 +51,7 @@ export default function Posts(props: Props) {
 						{props.titleSession}
 					</Text>
 				</div>
-				<div class="flex flex-col gap-5 max-content px-[5%] sm:flex-row">
+				<div class="flex flex-col gap-5 max-content px-[5%] sm:flex-row mx-auto">
 					{props.posts.map((post) => (
 						<Post {...post} />
 					))}
