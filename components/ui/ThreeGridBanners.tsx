@@ -52,7 +52,7 @@ function BannerItem(props: GridBanner) {
             <Text
               variant="description"
               tone="highlight"
-              class="text-[18px] sm:text-[22px] text-center"
+              class="text-[18px] sm:text-description-desktop text-center"
             >
               {action.description}
             </Text>
