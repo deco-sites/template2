@@ -24,13 +24,23 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "list-price"
     | "title"
     | "subtitle"
-    | "description";
+    | "description"
+    | "blank" ;
 };
 
 const Text = forwardRef<HTMLSpanElement, Props>((
   { tone = "default", variant = "body", class: _class = "", ...props },
   ref,
 ) => {
+  if(variant === "blank") {
+    return (
+      <span
+        {...props}
+        class={`${_class}`}
+        ref={ref}
+      />
+    )
+  }
   return (
     <span
       {...props}

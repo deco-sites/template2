@@ -46,8 +46,12 @@ function ProductCard({ product, preload }: Props) {
 	const [front, back] = images ?? [];
 	const { listPrice, price, seller, installments } = useOffer(offers);
 
+	
+
 	return (
 		<div id={`product-card-${productID}`} class="w-full group flex flex-col justify-start min-h-[365px]">
+			<Logger message="Dados do produto no productCard" info={product} />
+
 			<a href={url} aria-label="product link">
 				<div class="relative w-full mb-2.5">
 					<Image

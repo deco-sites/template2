@@ -3,6 +3,7 @@ import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import Container from "$store/components/ui/Container.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import QuantitySelector from "$store/components/ui/QuantitySelector.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
@@ -11,135 +12,128 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
+import Logger from "../../islands/Logger.tsx";
 
 export interface Props {
-  page: LoaderReturnType<ProductDetailsPage | null>;
+	page: LoaderReturnType<ProductDetailsPage | null>;
 }
 
 function NotFound() {
-  return (
-    <div class="w-full flex justify-center items-center py-28">
-      <div class="flex flex-col items-center justify-center gap-6">
-        <Text variant="heading-2">Página não encontrada</Text>
-        <a href="/">
-          <Button>Voltar à página inicial</Button>
-        </a>
-      </div>
-    </div>
-  );
+	return (
+		<div class="w-full flex justify-center items-center py-28">
+			<div class="flex flex-col items-center justify-center gap-6">
+				<Text variant="heading-2">Página não encontrada</Text>
+				<a href="/">
+					<Button>Voltar à página inicial</Button>
+				</a>
+			</div>
+		</div>
+	);
 }
 
 function Details({ page }: { page: ProductDetailsPage }) {
-  const {
-    breadcrumbList,
-    product,
-  } = page;
-  const {
-    description,
-    productID,
-    offers,
-    image: images,
-    name,
-    gtin,
-  } = product;
-  const { price, listPrice, seller, installments } = useOffer(offers);
-  const [front, back] = images ?? [];
+	const { breadcrumbList, product } = page;
+	const { description, productID, offers, image: images, name, gtin } = product;
+	const { price, listPrice, seller, installments } = useOffer(offers);
+	const [front, back] = images ?? [];
 
-  return (
-    <Container class="py-0 sm:py-10">
-      <div class="flex flex-col gap-4 sm:flex-row sm:gap-10">
-        {/* Image Gallery */}
-        <div class="flex flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
-          {[front, back ?? front].map((img, index) => (
-            <Image
-              style={{ aspectRatio: "360 / 500" }}
-              class="snap-center min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
-              sizes="(max-width: 640px) 100vw, 30vw"
-              src={img.url!}
-              alt={img.alternateName}
-              width={360}
-              height={500}
-              // Preload LCP image for better web vitals
-              preload={index === 0}
-              loading={index === 0 ? "eager" : "lazy"}
-            />
-          ))}
-        </div>
-        {/* Product Info */}
-        <div class="flex-auto px-4 sm:px-0">
-          {/* Breadcrumb */}
-          <Breadcrumb
+	return (
+		<Container class="py-5 px-[5%] sm:py-10">
+			<Logger message="Dados do produto" info={product} />
+			<Logger message="Installments" info={installments} />
+			<div class="flex flex-col sm:flex-row sm:gap-10">
+				{/* Image Gallery */}
+				<div class="flex flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
+					{[front, back ?? front].map((img, index) => (
+						<Image
+							style={{ aspectRatio: "360 / 500" }}
+							class="snap-center min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
+							sizes="(max-width: 640px) 100vw, 30vw"
+							src={img.url!}
+							alt={img.alternateName}
+							width={360}
+							height={500}
+							// Preload LCP image for better web vitals
+							preload={index === 0}
+							loading={index === 0 ? "eager" : "lazy"}
+						/>
+					))}
+				</div>
+				{/* Product Info */}
+				<div class="flex-auto pl-5 sm:px-0">
+					{/* Breadcrumb */}
+					{/* <Breadcrumb
             itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-          />
-          {/* Code and name */}
-          <div class="mt-4 sm:mt-8">
-            <div>
-              <Text tone="subdued" variant="caption">
-                Cod. {gtin}
-              </Text>
-            </div>
-            <h1>
-              <Text variant="heading-3">{name}</Text>
-            </h1>
-          </div>
-          {/* Prices */}
-          <div class="mt-4">
-            <div class="flex flex-row gap-2 items-center">
-              <Text
-                class="line-through"
-                tone="subdued"
-                variant="list-price"
-              >
-                {formatPrice(listPrice, offers!.priceCurrency!)}
-              </Text>
-              <Text tone="price" variant="heading-3">
-                {formatPrice(price, offers!.priceCurrency!)}
-              </Text>
-            </div>
-            <Text tone="subdued" variant="caption">
-              {installments}
-            </Text>
-          </div>
-          {/* Sku Selector */}
-          <div class="mt-4 sm:mt-6">
-            <ProductSelector product={product} />
-          </div>
-          {/* Add to Cart and Favorites button */}
-          <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-            {seller && (
-              <AddToCartButton
-                skuId={productID}
-                sellerId={seller}
-              />
-            )}
-            <Button variant="secondary">
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
-              Favoritar
-            </Button>
-          </div>
-          {/* Description card */}
-          <div class="mt-4 sm:mt-6">
-            <Text variant="caption">
-              {description && (
-                <details>
-                  <summary class="cursor-pointer">Descrição</summary>
-                  <div class="ml-2 mt-2">{description}</div>
-                </details>
-              )}
-            </Text>
-          </div>
-        </div>
-      </div>
-    </Container>
-  );
+          /> */}
+					{/* Code and name */}
+					<div class="sm:mt-8">
+						<div>
+							<Text tone="subdued" variant="caption">
+								Cod. {gtin}
+							</Text>
+						</div>
+						<h1>
+							<Text variant="blank" class="text-name-product font-name-product">
+								{name}
+							</Text>
+						</h1>
+					</div>
+					{/* Prices */}
+					<div class="mt-4 flex flex-col">
+						<Text variant="caption" tone="price" class="font-black text-[20px]">
+							{formatPrice(price, offers!.priceCurrency!)}
+						</Text>
+						{installments ? (
+							<Text class="" variant="list-price" tone="subdued">
+								{installments}
+							</Text>
+						) : (
+							<Text class="line-through" variant="list-price" tone="subdued">
+								{formatPrice(listPrice, offers!.priceCurrency!)}
+							</Text>
+						)}
+					</div>
+					{/* Sku Selector */}
+					<div class="mt-4 sm:mt-6">
+						<ProductSelector product={product} />
+					</div>
+					{/* Add to Cart and Favorites button */}
+					<div class="mt-4 sm:mt-10 flex flex-col gap-2">
+            <QuantitySelector
+              // disabled={loading.value || isGift}
+              quantity={1}
+              // onChange={(quantity) =>
+              //   updateItems({ orderItems: [{ index, quantity }] })}
+            />
+						{seller && <AddToCartButton skuId={productID} sellerId={seller} />}
+						{/* <Button variant="secondary">
+							<Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
+							Favoritar
+						</Button> */}
+					</div>
+					{/* Description card */}
+					<div class="mt-4 sm:mt-6">
+						<Text variant="caption">
+							{description && (
+								<details>
+									<summary class="cursor-pointer">Descrição</summary>
+									<div class="ml-2 mt-2">{description}</div>
+								</details>
+							)}
+						</Text>
+					</div>
+				</div>
+			</div>
+		</Container>
+	);
 }
 
 function ProductDetails({ page }: Props) {
-  if (page) {
-    return <Details page={page} />;
-  }
+	if (page) {
+		return <Details page={page} />;
+	}
 
-  return <NotFound />;
+	return <NotFound />;
 }
 
 export default ProductDetails;

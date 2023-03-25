@@ -29,7 +29,7 @@ function Gallery({ page }: { page: ProductListingPage }) {
         <Sort />
       </div>
       <div class="flex-col md:(w-[85%])">
-        <div class="relative grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-10 items-center">
+        <div class="relative grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10 items-center">
           {page.products?.map((product, index) => (
             <div class="w-full list-none">
               <ProductCard product={product} preload={index === 0} />
