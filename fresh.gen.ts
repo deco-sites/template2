@@ -15,9 +15,10 @@ import * as $$1 from "./islands/Filters.tsx";
 import * as $$2 from "./islands/HeaderButton.tsx";
 import * as $$3 from "./islands/HeaderModals.tsx";
 import * as $$4 from "./islands/HeaderSearchMenu.tsx";
-import * as $$5 from "./islands/SearchControls.tsx";
-import * as $$6 from "./islands/SliderJS.tsx";
-import * as $$7 from "./islands/Sort.tsx";
+import * as $$5 from "./islands/Logger.tsx";
+import * as $$6 from "./islands/SearchControls.tsx";
+import * as $$7 from "./islands/SliderJS.tsx";
+import * as $$8 from "./islands/Sort.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/BannerHorizontal.tsx";
 import * as $$$2 from "./sections/BannerIcones.tsx";
@@ -80,9 +81,10 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$2,
     "./islands/HeaderModals.tsx": $$3,
     "./islands/HeaderSearchMenu.tsx": $$4,
-    "./islands/SearchControls.tsx": $$5,
-    "./islands/SliderJS.tsx": $$6,
-    "./islands/Sort.tsx": $$7,
+    "./islands/Logger.tsx": $$5,
+    "./islands/SearchControls.tsx": $$6,
+    "./islands/SliderJS.tsx": $$7,
+    "./islands/Sort.tsx": $$8,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,

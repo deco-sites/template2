@@ -7,219 +7,225 @@
 import type { Options } from "$fresh/plugins/twind.ts";
 
 const gridCols = ([arg]: string[]) => {
-  const template = Number.isInteger(Number(arg))
-    ? `repeat(${arg}, minmax(0, 1fr))`
-    : arg
-    ? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
-    : arg;
+	const template = Number.isInteger(Number(arg))
+		? `repeat(${arg}, minmax(0, 1fr))`
+		: arg
+		? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
+		: arg;
 
-  return {
-    "grid-template-columns": template,
-  };
+	return {
+		"grid-template-columns": template,
+	};
 };
 
 const gridRows = ([arg]: string[]) => {
-  const template = Number.isInteger(Number(arg))
-    ? `repeat(${arg}, minmax(0, 1fr))`
-    : arg
-    ? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
-    : arg;
+	const template = Number.isInteger(Number(arg))
+		? `repeat(${arg}, minmax(0, 1fr))`
+		: arg
+		? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
+		: arg;
 
-  return {
-    "grid-template-rows": template,
-  };
+	return {
+		"grid-template-rows": template,
+	};
 };
 
 const options: Omit<Options, "selfURL"> = {
-  theme: {
-    extend: {
-      colors: {
-        default: "#FFFFFF",
-        header: "#FFFFFF",
-        badge: "#8C3D3D", // shopping cart tem isso tambem
-        footer: "#003232",
-        interactive: "#161616",
-        "interactive-inverse": "#FFFFFF",
-        hover: "rgba(0, 0, 0, 0.04)",
-        "hover-inverse": "rgba(255, 255, 255, 0.4)",
-        topbar: "#f49d37",
-        "gray-primary": "#efefef",
-        "gray-secondary": "#d9d9d9",
-        "gray-tertiary": "#828080",
-        "gray-quaternary": "#363636",
-        accent: "#8a4f7d",
-        highlight: "#312f4f",
-        "highlight-secondary": "#696d8c",
-      },
-      textColor: {
-        default: "#000",
-        "default-inverse": "#FFFFFF",
-        subdued: "#66736C",
-        "subdued-inverse": "#C6C6C6",
-        price: "#8C3D3D",
-        "section-title": "#161616",
-        positive: "#1A7346",
-        critical: "#B44125",
-        details: "#b8b08d",
-      },
-      borderColor: {
-        default: "#D4DBD7",
-        "default-inverse": "#FFFFFF",
-        interactive: "#161616",
-        focus: "#3379EF",
-        positive: "#1A7346",
-        critical: "#B44125",
-      },
-      outline: {
-        interactive: ["2px solid #8a4f7d", "2px"],
-      },
-      fontSize: {
-        "heading-1": ["56px", "67.2px"],
-        "heading-2": ["24px", "28.8px"],
-        "heading-3": ["20px", "24px"],
-        menu: ["16px", "20px"],
-        button: ["14px", "18px"],
-        body: ["16px", "20px"],
-        caption: ["13px", "16px"],
-        "list-price": ["10px", "20px"],
-        title: ["38px", "1.2"],
-        "title-desktop": ["45.6px", "1.2"],
-        description: ["16px", "1.5"],
-        "description-desktop": ["19.2px", "1.5"],
-      },
-      fontWeight: {
-        "heading-1": "500",
-        "heading-2": "500",
-        "heading-3": "500",
-        menu: "400",
-        base: "400",
-        button: "700",
-        body: "400",
-        caption: "400",
-        "list-price": "400",
-        title: "900",
-        subtitle: "600",
-        description: "400",
-      },
-      animation: {
-        "slide-left": "slide-left-frame 0.4s ease normal",
-        "slide-right": "slide-right-frame 0.4s ease normal",
-        "slide-bottom": "slide-bottom-frame 0.4s ease normal",
-      },
-      keyframes: {
-        "slide-left-frame": {
-          from: { transform: "translateX(100%)" },
-          to: { transform: "translateX(0)" },
-        },
-        "slide-right-frame": {
-          from: { transform: "translateX(-100%)" },
-          to: { transform: "translateX(0)" },
-        },
-        "slide-bottom-frame": {
-          from: { transform: "translateY(100%)" },
-          to: { transform: "translateY(0)" },
-        },
-      },
-      boxShadow: {
-        sm: "0px 1px 3px 0px #00000014",
-        default: "0px 1px 4px 0px #0000001F",
-        md: "0px 1px 5px 0px #00000024",
-        lg: "0px 4px 10px 0px #0000001F",
-      },
-    },
-    fontFamily: {
-      sans: ["Roboto", "sans-serif"],
-      serif: ["inherit", "serif"],
-      title: ["Noto Sans", "sans-serif"],
-    },
-    screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-    },
-  },
-  preflight: (preflight) => ({
-    ...preflight,
+	theme: {
+		extend: {
+			colors: {
+				default: "#FFFFFF",
+				header: "#FFFFFF",
+				badge: "#8C3D3D", // shopping cart tem isso tambem
+				footer: "#003232",
+				interactive: "#161616",
+				"interactive-inverse": "#FFFFFF",
+				hover: "rgba(0, 0, 0, 0.04)",
+				"hover-inverse": "rgba(255, 255, 255, 0.4)",
+				topbar: "#f49d37",
+				"gray-primary": "#efefef",
+				"gray-secondary": "#d9d9d9",
+				"gray-tertiary": "#828080",
+				"gray-quaternary": "#363636",
+				accent: "#8a4f7d",
+				highlight: "#312f4f",
+				"highlight-secondary": "#696d8c",
+			},
+			textColor: {
+				default: "#000",
+				"default-inverse": "#FFFFFF",
+				subdued: "#66736C",
+				"subdued-inverse": "#C6C6C6",
+				price: "#000",
+				"section-title": "#161616",
+				positive: "#1A7346",
+				critical: "#B44125",
+				details: "#b8b08d",
+			},
+			borderColor: {
+				default: "#D4DBD7",
+				"default-inverse": "#FFFFFF",
+				interactive: "#161616",
+				focus: "#3379EF",
+				positive: "#1A7346",
+				critical: "#B44125",
+			},
+			outline: {
+				interactive: ["2px solid #8a4f7d", "2px"],
+			},
+			fontSize: {
+				"heading-1": ["56px", "67.2px"],
+				"heading-2": ["24px", "28.8px"],
+				"heading-3": ["20px", "24px"],
+				menu: ["16px", "20px"],
+				button: ["14px", "18px"],
+				body: ["16px", "20px"],
+				caption: ["13px", "16px"],
+				"list-price": ["14px", "34px"],
+				title: ["38px", "1.2"],
+				"title-desktop": ["45.6px", "1.2"],
+				description: ["16px", "1.5"],
+				"description-desktop": ["19.2px", "1.5"],
+			},
+			fontWeight: {
+				"heading-1": "500",
+				"heading-2": "500",
+				"heading-3": "500",
+				menu: "400",
+				base: "400",
+				button: "700",
+				body: "400",
+				caption: "400",
+				"list-price": "400",
+				title: "900",
+				subtitle: "600",
+				description: "400",
+			},
+			animation: {
+				"slide-left": "slide-left-frame 0.4s ease normal",
+				"slide-right": "slide-right-frame 0.4s ease normal",
+				"slide-bottom": "slide-bottom-frame 0.4s ease normal",
+			},
+			keyframes: {
+				"slide-left-frame": {
+					from: { transform: "translateX(100%)" },
+					to: { transform: "translateX(0)" },
+				},
+				"slide-right-frame": {
+					from: { transform: "translateX(-100%)" },
+					to: { transform: "translateX(0)" },
+				},
+				"slide-bottom-frame": {
+					from: { transform: "translateY(100%)" },
+					to: { transform: "translateY(0)" },
+				},
+			},
+			boxShadow: {
+				sm: "0px 1px 3px 0px #00000014",
+				default: "0px 1px 4px 0px #0000001F",
+				md: "0px 1px 5px 0px #00000024",
+				lg: "0px 4px 10px 0px #0000001F",
+			},
+		},
+		fontFamily: {
+			sans: ["Roboto", "sans-serif"],
+			serif: ["inherit", "serif"],
+			title: ["Noto Sans", "sans-serif"],
+		},
+		screens: {
+			sm: "640px",
+			md: "768px",
+			lg: "1024px",
+			xl: "1280px",
+			"2xl": "1536px",
+		},
+	},
+	preflight: (preflight) => ({
+		...preflight,
 
-    // Stick footer to the bottom of the page
-    body: {
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "100vh",
-    },
-    'section[data-manifest-key="./sections/Footer.tsx"]': {
-      marginTop: "auto",
-    },
+		// Stick footer to the bottom of the page
+		body: {
+			display: "flex",
+			flexDirection: "column",
+			minHeight: "100vh",
+		},
+		'section[data-manifest-key="./sections/Footer.tsx"]': {
+			marginTop: "auto",
+		},
 
-    // Prevent scroll when modal is open
-    "body[no-scroll]": {
-      overflow: "hidden",
-      height: "100vh",
-    },
-  }),
-  plugins: {
-    backdrop: {
-      "&::backdrop": {
-        background: "rgba(0, 0, 0, 0.5)",
-      },
-    },
-    "scroll-snap-center": {
-      "scroll-snap-align": "center",
-    },
-    "scroll-x-mandatory": {
-      "scroll-snap-type": "x mandatory",
-    },
-    "snap-x": {
-      "scroll-snap-type": "x var(--tw-scroll-snap-strictness)",
-    },
-    "snap-mandatory": {
-      "--tw-scroll-snap-strictness": "mandatory",
-    },
-    fill: (parts) => ({ fill: parts.join("-") }),
-    "max-h-min": {
-      "max-height": "min-content",
-    },
-    snap: ([mod]) => ({ "scroll-snap-align": mod }),
-    "grid-cols": gridCols,
-    "grid-rows": gridRows,
-    "scroll-smooth": {
-      "scroll-behavior": "smooth",
-      "-webkit-overflow-scrolling": "touch",
-    },
-    "scrollbar-none": {
-      "scrollbar-width": "none",
-      "-ms-overflow-style": "none",
-      "&::-webkit-scrollbar": {
-        display: "none",
-      },
-    },
-    "background-title": {
-      background:
-        "radial-gradient(circle,transparent 20%, #fff 20%,#fff  80%,transparent 80%,transparent),radial-gradient(circle,transparent 20%,#fff  20%,#fff  80%,transparent 80%,transparent) 25px 25px,linear-gradient(#efefef 2px,transparent 2px) 0 -1px,linear-gradient(90deg,#efefef 2px,#fff  2px) -1px 0",
-      "background-size": "50px 50px,50px 50px,25px 25px,25px 25px",
-    },
-    "fit-content": {
-      "width": "fit-content",
-    },
-    "transform-center": {
-      "left": "50%",
-      "transform": "translateX(-50%)",
-    },
-    "transform-none": {
-      "transform": "translate(0,0)",
-    },
-    "max-width-header": {
-      "max-width": "calc(1368px + 10%)",
-    },
-    "max-content": {
-      "max-width": "calc(1368px + 10%)",
-    },
-    "blur-sm": {
-      "filter": "blur(4px)",
-    },
-  },
+		// Prevent scroll when modal is open
+		"body[no-scroll]": {
+			overflow: "hidden",
+			height: "100vh",
+		},
+	}),
+	plugins: {
+		backdrop: {
+			"&::backdrop": {
+				background: "rgba(0, 0, 0, 0.5)",
+			},
+		},
+		"scroll-snap-center": {
+			"scroll-snap-align": "center",
+		},
+		"scroll-x-mandatory": {
+			"scroll-snap-type": "x mandatory",
+		},
+		"snap-x": {
+			"scroll-snap-type": "x var(--tw-scroll-snap-strictness)",
+		},
+		"snap-mandatory": {
+			"--tw-scroll-snap-strictness": "mandatory",
+		},
+		fill: (parts) => ({ fill: parts.join("-") }),
+		"max-h-min": {
+			"max-height": "min-content",
+		},
+		snap: ([mod]) => ({ "scroll-snap-align": mod }),
+		"grid-cols": gridCols,
+		"grid-rows": gridRows,
+		"scroll-smooth": {
+			"scroll-behavior": "smooth",
+			"-webkit-overflow-scrolling": "touch",
+		},
+		"scrollbar-none": {
+			"scrollbar-width": "none",
+			"-ms-overflow-style": "none",
+			"&::-webkit-scrollbar": {
+				display: "none",
+			},
+		},
+		"background-title": {
+			background:
+				"radial-gradient(circle,transparent 20%, #fff 20%,#fff  80%,transparent 80%,transparent),radial-gradient(circle,transparent 20%,#fff  20%,#fff  80%,transparent 80%,transparent) 25px 25px,linear-gradient(#efefef 2px,transparent 2px) 0 -1px,linear-gradient(90deg,#efefef 2px,#fff  2px) -1px 0",
+			"background-size": "50px 50px,50px 50px,25px 25px,25px 25px",
+		},
+		"fit-content": {
+			width: "fit-content",
+		},
+		"transform-center": {
+			left: "50%",
+			transform: "translateX(-50%)",
+		},
+		"transform-none": {
+			transform: "translate(0,0)",
+		},
+		"max-width-header": {
+			"max-width": "calc(1368px + 10%)",
+		},
+		"max-content": {
+			"max-width": "calc(1368px + 10%)",
+		},
+		"blur-sm": {
+			filter: "blur(4px)",
+		},
+		"line-clamp-2": {
+			overflow: "hidden",
+			display: "-webkit-box",
+			"-webkit-box-orient": "vertical",
+			"-webkit-line-clamp": "2",
+		},
+	},
 };
 
 export default options;
