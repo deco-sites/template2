@@ -9,7 +9,7 @@ function Coupon() {
   const ref = useRef<HTMLInputElement>(null);
   const displayInput = useSignal(false);
 
-  const coupon = cart.value?.coupon_code
+  const coupon = cart.value?.coupon_code;
 
   const toggleInput = () => {
     displayInput.value = !displayInput.value;
