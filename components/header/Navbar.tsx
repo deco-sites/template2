@@ -60,7 +60,12 @@ function Navbar({
           <HeaderButton variant="search" />
           <HeaderSearchMenu searchbar={searchbar} />
           {/* TODO: Receive this data from VNDA config */}
-          <Button as="a" variant="icon" href="https://template1.vnda.dev/entrar" aria-label="Log in">
+          <Button
+            as="a"
+            variant="icon"
+            href="https://template1.vnda.dev/entrar"
+            aria-label="Log in"
+          >
             <Icon
               id="icon-account"
               width={33}
