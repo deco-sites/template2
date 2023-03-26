@@ -61,6 +61,7 @@ const options: Omit<Options, "selfURL"> = {
 				positive: "#1A7346",
 				critical: "#B44125",
 				details: "#b8b08d",
+				submenu: "#312f4f"
 			},
 			borderColor: {
 				default: "#D4DBD7",
@@ -87,7 +88,8 @@ const options: Omit<Options, "selfURL"> = {
 				description: ["16px", "1.5"],
 				"description-desktop": ["1rem", "1.5"],
 				"name-product": ["2.25rem", "1.2"],
-				subtitle:["18px", "1.2"]
+				subtitle:["18px", "1.2"],
+				submenu: ["1rem", "50px"]
 			},
 			fontWeight: {
 				"heading-1": "500",
@@ -103,12 +105,14 @@ const options: Omit<Options, "selfURL"> = {
 				"title-desktop": "900",
 				subtitle: "600",
 				description: "400",
-				"name-product": "900"
+				"name-product": "900",
+				submenu: "700"
 			},
 			animation: {
 				"slide-left": "slide-left-frame 0.4s ease normal",
 				"slide-right": "slide-right-frame 0.4s ease normal",
 				"slide-bottom": "slide-bottom-frame 0.4s ease normal",
+				"slide-to-hide": "slide-hide-element 0.4s ease normal"
 			},
 			keyframes: {
 				"slide-left-frame": {
@@ -123,6 +127,10 @@ const options: Omit<Options, "selfURL"> = {
 					from: { transform: "translateY(100%)" },
 					to: { transform: "translateY(0)" },
 				},
+				"slide-hide-element": {
+					from: { transform: "translateX(0)" },
+					to: { transform: "translateX(100%)" },
+				}
 			},
 			boxShadow: {
 				sm: "0px 1px 3px 0px #00000014",
