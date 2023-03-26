@@ -33,7 +33,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
     <div class="flex justify-between bg-gray-primary">
       <Button
         variant="icon"
-        class="h-9 w-9 text-[32px] text-highlight-secondary"
+        class="h-9 w-9 text-[32px] text-highlight-secondary md:h-12"
         onClick={decrement}
         disabled={disabled}
         loading={loading}
@@ -53,7 +53,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
         onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
       />
       <Button
-        class="h-9 w-9 text-[32px] text-highlight-secondary"
+        class="h-9 w-9 text-[32px] text-highlight-secondary md:h-12"
         variant="icon"
         onClick={increment}
         disabled={disabled}
