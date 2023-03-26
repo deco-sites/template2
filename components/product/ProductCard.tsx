@@ -50,7 +50,7 @@ function ProductCard({ product, preload }: Props) {
 
 	return (
 		<div id={`product-card-${productID}`} class="w-full group flex flex-col justify-start min-h-[365px]">
-			<Logger message="Dados do produto no productCard" info={product} />
+			{/* <Logger message="Dados do produto no productCard" info={product} /> */}
 
 			<a href={url} aria-label="product link">
 				<div class="relative w-full mb-2.5">

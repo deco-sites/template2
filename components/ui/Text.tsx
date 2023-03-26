@@ -25,7 +25,8 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "title"
     | "subtitle"
     | "description"
-    | "blank" ;
+    | "blank" 
+    | "subtitle" ;
 };
 
 const Text = forwardRef<HTMLSpanElement, Props>((

@@ -86,7 +86,8 @@ const options: Omit<Options, "selfURL"> = {
 				"title-desktop": ["2.4rem", "1.2"],
 				description: ["16px", "1.5"],
 				"description-desktop": ["1rem", "1.5"],
-				"name-product": ["2.25rem", "1.2"]
+				"name-product": ["2.25rem", "1.2"],
+				subtitle:["18px", "1.2"]
 			},
 			fontWeight: {
 				"heading-1": "500",

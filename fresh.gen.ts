@@ -589,6 +589,18 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "icon-filter",
                     },
+                    {
+                      "type": "string",
+                      "const": "icon-facebook",
+                    },
+                    {
+                      "type": "string",
+                      "const": "icon-whatsapp",
+                    },
+                    {
+                      "type": "string",
+                      "const": "icon-twitter",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -815,6 +827,18 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "icon-filter",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-facebook",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-whatsapp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-twitter",
                               },
                             ],
                             "title": "Icon",

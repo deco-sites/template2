@@ -39,8 +39,8 @@ function Details({ page }: { page: ProductDetailsPage }) {
 
 	return (
 		<Container class="py-5 px-[5%] sm:py-10">
-			<Logger message="Dados do produto" info={product} />
-			<Logger message="Installments" info={installments} />
+			{/* <Logger message="Dados do produto" info={product} />
+			<Logger message="Installments" info={installments} /> */}
 			<div class="flex flex-col sm:flex-row sm:gap-10">
 				{/* Image Gallery */}
 				<div class="flex flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
@@ -99,28 +99,139 @@ function Details({ page }: { page: ProductDetailsPage }) {
 					</div>
 					{/* Add to Cart and Favorites button */}
 					<div class="mt-4 sm:mt-10 flex flex-col gap-2">
-            <QuantitySelector
-              // disabled={loading.value || isGift}
-              quantity={1}
-              // onChange={(quantity) =>
-              //   updateItems({ orderItems: [{ index, quantity }] })}
-            />
+						<QuantitySelector
+							// disabled={loading.value || isGift}
+							quantity={1}
+							// onChange={(quantity) =>
+							//   updateItems({ orderItems: [{ index, quantity }] })}
+						/>
 						{seller && <AddToCartButton skuId={productID} sellerId={seller} />}
 						{/* <Button variant="secondary">
 							<Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
 							Favoritar
 						</Button> */}
 					</div>
-					{/* Description card */}
-					<div class="mt-4 sm:mt-6">
+					<div class="flex flex-col gap-2 pb-10 border-b-1 border-highlight mt-8">
+						<Text variant="body" class="text-[14px]">
+							calcular frete e prazo
+						</Text>
+						<div class="flex">
+							<input
+								type="text"
+								class="border border-black w-[70%] flex-1 p-2.5 h-[42px] outline-none"
+								name="cepText"
+								id="cep-input"
+								placeholder="CEP"
+							/>
+							<Button
+								class="font-medium w-[30%] text-[14px] h-[42px]"
+								variant="add-to-cart"
+							>
+								CALCULAR
+							</Button>
+						</div>
+					</div>
+					<div class="flex flex-col gap-2 pb-6 border-b-1 border-highlight mt-6">
+						<Text variant="body" class="text-[14px]">
+							compartilhar
+						</Text>
+						<div class="flex gap-3">
+							<Button
+								variant="icon"
+								aria-label="Compartilhar no Facebook"
+								as="a"
+								href="#"
+								target="_blank"
+								class="px-0"
+							>
+								<Icon
+									id="icon-facebook"
+									width={20}
+									height={20}
+									strokeWidth={0.01}
+								/>
+							</Button>
+							<Button
+								variant="icon"
+								aria-label="Compartilhar no WhatsApp"
+								as="a"
+								href="#"
+								target="_blank"
+								class="px-0"
+							>
+								<Icon
+									id="icon-whatsapp"
+									width={20}
+									height={20}
+									strokeWidth={0.01}
+								/>
+							</Button>
+							<Button
+								variant="icon"
+								aria-label="Compartilhar no Twitter"
+								as="a"
+								href="#"
+								target="_blank"
+								class="px-0"
+							>
+								<Icon
+									id="icon-twitter"
+									width={20}
+									height={20}
+									strokeWidth={0.01}
+								/>
+							</Button>
+						</div>
+					</div>
+					<div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
 						<Text variant="caption">
 							{description && (
-								<details>
-									<summary class="cursor-pointer">Descrição</summary>
-									<div class="ml-2 mt-2">{description}</div>
-								</details>
+								<Text variant="body" class="font-light text-gray-quaternary">
+									{description} Ad duis nulla consectetur magna consequat
+									incididunt non sit eu culpa officia consequat eiusmod. In
+									dolor excepteur excepteur adipisicing non est nostrud nulla
+									mollit elit amet elit nostrud. Ipsum veniam ut cupidatat duis
+									commodo fugiat sunt irure amet irure proident pariatur dolor.
+									Minim minim occaecat esse eu. Dolore cillum eiusmod et tempor
+									velit id cupidatat eu exercitation irure anim. Aliqua amet est
+									irure eiusmod pariatur sit elit occaecat non qui quis
+									consequat quis sit.{" "}
+								</Text>
 							)}
 						</Text>
+					</div>
+
+					<div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
+						<details>
+							<summary class="flex cursor-pointer">
+								<Text variant="subtitle">Título 1</Text>
+							</summary>
+							<Text
+								variant="body"
+								class="font-light text-gray-quaternary mt-2.5 block"
+							>
+								Ad duis nulla consectetur magna consequat incididunt non sit eu
+								culpa officia consequat eiusmod. In dolor excepteur excepteur
+								adipisicing.... Ad duis nulla consectetur magna consequat
+								incididunt non sit eu culpa officia consequat eiusmod. In dolor
+								excepteur excepteur adipisicing....
+							</Text>
+						</details>
+					</div>
+					<div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
+						<details>
+							<summary class="flex cursor-pointer">
+								<Text variant="subtitle">Título 2</Text>
+							</summary>
+							<Text
+								variant="body"
+								class="font-light text-gray-quaternary mt-2.5 block"
+							>
+								Ad duis nulla consectetur magna consequat incididunt non sit eu
+								culpa officia consequat eiusmod. In dolor excepteur excepteur
+								adipisicing....
+							</Text>
+						</details>
 					</div>
 				</div>
 			</div>
