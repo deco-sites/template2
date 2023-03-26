@@ -3,17 +3,19 @@ import { useAddToCart } from "$store/sdk/useAddToCart.ts";
 
 interface Props {
   skuId: string;
-  sellerId: string;
 }
 
-function AddToCartButton({ skuId, sellerId }: Props) {
+function AddToCartButton({ skuId }: Props) {
   const props = useAddToCart({
     skuId,
-    sellerId,
   });
 
   return (
-    <Button {...props} class="w-full font-medium text-[14px]" variant="add-to-cart">
+    <Button
+      {...props}
+      class="w-full font-medium text-[14px]"
+      variant="add-to-cart"
+    >
       ADICIONAR AO CARRINHO
     </Button>
   );

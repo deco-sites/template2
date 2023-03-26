@@ -22,20 +22,20 @@ import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
 export interface Props {
-	page: LoaderReturnType<ProductDetailsPage | null>;
+  page: LoaderReturnType<ProductDetailsPage | null>;
 }
 
 function NotFound() {
-	return (
-		<div class="w-full flex justify-center items-center py-28">
-			<div class="flex flex-col items-center justify-center gap-6">
-				<Text variant="heading-2">Página não encontrada</Text>
-				<a href="/">
-					<Button>Voltar à página inicial</Button>
-				</a>
-			</div>
-		</div>
-	);
+  return (
+    <div class="w-full flex justify-center items-center py-28">
+      <div class="flex flex-col items-center justify-center gap-6">
+        <Text variant="heading-2">Página não encontrada</Text>
+        <a href="/">
+          <Button>Voltar à página inicial</Button>
+        </a>
+      </div>
+    </div>
+  );
 }
 
 function Thumbs({ images }: { images: ImageObject[] }) {
@@ -160,7 +160,7 @@ function ProductImageCarousel({ images }: { images: ImageObject[] }) {
 
 function Details({ page }: { page: ProductDetailsPage }) {
 	const { breadcrumbList, product } = page;
-	const { description, productID, offers, image: images, name, gtin } = product;
+	const { description, productID, offers, image: images, name, gtin, sku } = product;
 	const { price, listPrice, seller, installments } = useOffer(offers);
 	const [front, back] = images ?? [];
 	const imagesSlider = Array(4).fill(front) as ImageObject[];
@@ -224,148 +224,150 @@ function Details({ page }: { page: ProductDetailsPage }) {
 						</div>
 						<div class="contents md:(block w-[60%])">
 							{seller && (
-								<AddToCartButton skuId={productID} sellerId={seller} />
+								<AddToCartButton skuId={sku}  />
 							)}
 						</div>
 						{/* <Button variant="secondary">
 							<Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
 							Favoritar
-						</Button> */}
-					</div>
-					<div class="flex flex-col gap-2 pb-10 border-b-1 border-highlight mt-8">
-						<Text variant="body" class="text-[14px]">
-							calcular frete e prazo
-						</Text>
-						<div class="flex">
-							<input
-								type="text"
-								class="border border-black w-[70%] flex-1 p-2.5 h-[42px] outline-none md:h-12"
-								name="cepText"
-								id="cep-input"
-								placeholder="CEP"
-							/>
-							<Button
-								class="font-medium w-[30%] text-[14px] h-[42px]"
-								variant="add-to-cart"
-							>
-								CALCULAR
-							</Button>
-						</div>
-					</div>
-					<div class="flex flex-col gap-2 pb-6 border-b-1 border-highlight mt-6">
-						<Text variant="body" class="text-[14px]">
-							compartilhar
-						</Text>
-						<div class="flex gap-3">
-							<Button
-								variant="icon"
-								aria-label="Compartilhar no Facebook"
-								as="a"
-								href="#"
-								target="_blank"
-								class="px-0"
-							>
-								<Icon
-									id="icon-facebook"
-									width={20}
-									height={20}
-									strokeWidth={0.01}
-								/>
-							</Button>
-							<Button
-								variant="icon"
-								aria-label="Compartilhar no WhatsApp"
-								as="a"
-								href="#"
-								target="_blank"
-								class="px-0"
-							>
-								<Icon
-									id="icon-whatsapp"
-									width={20}
-									height={20}
-									strokeWidth={0.01}
-								/>
-							</Button>
-							<Button
-								variant="icon"
-								aria-label="Compartilhar no Twitter"
-								as="a"
-								href="#"
-								target="_blank"
-								class="px-0"
-							>
-								<Icon
-									id="icon-twitter"
-									width={20}
-									height={20}
-									strokeWidth={0.01}
-								/>
-							</Button>
-						</div>
-					</div>
-					<div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
-						<Text variant="caption">
-							{description && (
-								<Text variant="body" class="font-light text-gray-quaternary">
-									{description} Ad duis nulla consectetur magna consequat
-									incididunt non sit eu culpa officia consequat eiusmod. In
-									dolor excepteur excepteur adipisicing non est nostrud nulla
-									mollit elit amet elit nostrud. Ipsum veniam ut cupidatat duis
-									commodo fugiat sunt irure amet irure proident pariatur dolor.
-									Minim minim occaecat esse eu. Dolore cillum eiusmod et tempor
-									velit id cupidatat eu exercitation irure anim. Aliqua amet est
-									irure eiusmod pariatur sit elit occaecat non qui quis
-									consequat quis sit.{" "}
-								</Text>
-							)}
-						</Text>
-					</div>
+						</Button> */
+            }
+          </div>
+          <div class="flex flex-col gap-2 pb-10 border-b-1 border-highlight mt-8">
+            <Text variant="body" class="text-[14px]">
+              calcular frete e prazo
+            </Text>
+            <div class="flex">
+              <input
+                type="text"
+                class="border border-black w-[70%] flex-1 p-2.5 h-[42px] outline-none md:h-12"
+                name="cepText"
+                id="cep-input"
+                placeholder="CEP"
+              />
+              <Button
+                class="font-medium w-[30%] text-[14px] h-[42px]"
+                variant="add-to-cart"
+              >
+                CALCULAR
+              </Button>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 pb-6 border-b-1 border-highlight mt-6">
+            <Text variant="body" class="text-[14px]">
+              compartilhar
+            </Text>
+            <div class="flex gap-3">
+              <Button
+                variant="icon"
+                aria-label="Compartilhar no Facebook"
+                as="a"
+                href="#"
+                target="_blank"
+                class="px-0"
+              >
+                <Icon
+                  id="icon-facebook"
+                  width={20}
+                  height={20}
+                  strokeWidth={0.01}
+                />
+              </Button>
+              <Button
+                variant="icon"
+                aria-label="Compartilhar no WhatsApp"
+                as="a"
+                href="#"
+                target="_blank"
+                class="px-0"
+              >
+                <Icon
+                  id="icon-whatsapp"
+                  width={20}
+                  height={20}
+                  strokeWidth={0.01}
+                />
+              </Button>
+              <Button
+                variant="icon"
+                aria-label="Compartilhar no Twitter"
+                as="a"
+                href="#"
+                target="_blank"
+                class="px-0"
+              >
+                <Icon
+                  id="icon-twitter"
+                  width={20}
+                  height={20}
+                  strokeWidth={0.01}
+                />
+              </Button>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
+            <Text variant="caption">
+              {description && (
+                <Text variant="body" class="font-light text-gray-quaternary">
+                  {description}{" "}
+                  Ad duis nulla consectetur magna consequat incididunt non sit
+                  eu culpa officia consequat eiusmod. In dolor excepteur
+                  excepteur adipisicing non est nostrud nulla mollit elit amet
+                  elit nostrud. Ipsum veniam ut cupidatat duis commodo fugiat
+                  sunt irure amet irure proident pariatur dolor. Minim minim
+                  occaecat esse eu. Dolore cillum eiusmod et tempor velit id
+                  cupidatat eu exercitation irure anim. Aliqua amet est irure
+                  eiusmod pariatur sit elit occaecat non qui quis consequat quis
+                  sit.{" "}
+                </Text>
+              )}
+            </Text>
+          </div>
 
-					<div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
-						<details>
-							<summary class="flex cursor-pointer">
-								<Text variant="subtitle">Título 1</Text>
-							</summary>
-							<Text
-								variant="body"
-								class="font-light text-gray-quaternary mt-2.5 block"
-							>
-								Ad duis nulla consectetur magna consequat incididunt non sit eu
-								culpa officia consequat eiusmod. In dolor excepteur excepteur
-								adipisicing.... Ad duis nulla consectetur magna consequat
-								incididunt non sit eu culpa officia consequat eiusmod. In dolor
-								excepteur excepteur adipisicing....
-							</Text>
-						</details>
-					</div>
-					<div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
-						<details>
-							<summary class="flex cursor-pointer">
-								<Text variant="subtitle">Título 2</Text>
-							</summary>
-							<Text
-								variant="body"
-								class="font-light text-gray-quaternary mt-2.5 block"
-							>
-								Ad duis nulla consectetur magna consequat incididunt non sit eu
-								culpa officia consequat eiusmod. In dolor excepteur excepteur
-								adipisicing....
-							</Text>
-						</details>
-					</div>
-				</div>
-			</div>
-		</Container>
-	);
+          <div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
+            <details>
+              <summary class="flex cursor-pointer">
+                <Text variant="subtitle">Título 1</Text>
+              </summary>
+              <Text
+                variant="body"
+                class="font-light text-gray-quaternary mt-2.5 block"
+              >
+                Ad duis nulla consectetur magna consequat incididunt non sit eu
+                culpa officia consequat eiusmod. In dolor excepteur excepteur
+                adipisicing.... Ad duis nulla consectetur magna consequat
+                incididunt non sit eu culpa officia consequat eiusmod. In dolor
+                excepteur excepteur adipisicing....
+              </Text>
+            </details>
+          </div>
+          <div class="flex flex-col gap-2 pb-3.5 border-b-1 border-highlight mt-3.5">
+            <details>
+              <summary class="flex cursor-pointer">
+                <Text variant="subtitle">Título 2</Text>
+              </summary>
+              <Text
+                variant="body"
+                class="font-light text-gray-quaternary mt-2.5 block"
+              >
+                Ad duis nulla consectetur magna consequat incididunt non sit eu
+                culpa officia consequat eiusmod. In dolor excepteur excepteur
+                adipisicing....
+              </Text>
+            </details>
+          </div>
+        </div>
+      </div>
+    </Container>
+  );
 }
 
 function ProductDetails({ page }: Props) {
-	if (page) {
-		return <Details page={page} />;
-	}
+  if (page) {
+    return <Details page={page} />;
+  }
 
-	return <NotFound />;
+  return <NotFound />;
 }
 
 export default ProductDetails;

@@ -14,68 +14,69 @@ import Logger from "../../islands/Logger.tsx";
  * remove JS from the frontend
  */
 function Sizes(product: Product) {
-	const possibilities = useVariantPossibilities(product);
-	const options = Object.entries(
-		possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {}
-	);
+  const possibilities = useVariantPossibilities(product);
+  const options = Object.entries(
+    possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {},
+  );
 
-	return (
-		<ul class="flex justify-center items-center gap-2">
-			{options.map(([url, value]) => (
-				<a href={url}>
-					<Avatar
-						class="bg-default"
-						variant="abbreviation"
-						content={value}
-						disabled={url === product.url}
-					/>
-				</a>
-			))}
-		</ul>
-	);
+  return (
+    <ul class="flex justify-center items-center gap-2">
+      {options.map(([url, value]) => (
+        <a href={url}>
+          <Avatar
+            class="bg-default"
+            variant="abbreviation"
+            content={value}
+            disabled={url === product.url}
+          />
+        </a>
+      ))}
+    </ul>
+  );
 }
 
 interface Props {
-	product: Product;
-	/** Preload card image */
-	preload?: boolean;
+  product: Product;
+  /** Preload card image */
+  preload?: boolean;
 }
 
 function ProductCard({ product, preload }: Props) {
-	const { url, productID, name, image: images, offers } = product;
-	const [front, back] = images ?? [];
-	const { listPrice, price, seller, installments } = useOffer(offers);
+  const { url, productID, name, image: images, offers } = product;
+  const [front, back] = images ?? [];
+  const { listPrice, price, seller, installments } = useOffer(offers);
 
-	
+  return (
+    <div
+      id={`product-card-${productID}`}
+      class="w-full group flex flex-col justify-start min-h-[365px]"
+    >
+      {/* <Logger message="Dados do produto no productCard" info={product} /> */}
 
-	return (
-		<div id={`product-card-${productID}`} class="w-full group flex flex-col justify-start min-h-[365px]">
-			{/* <Logger message="Dados do produto no productCard" info={product} /> */}
+      <a href={url} aria-label="product link">
+        <div class="relative w-full mb-2.5">
+          <Image
+            src={front.url!}
+            alt={front.alternateName}
+            width={168}
+            height={168}
+            class="w-full group-hover:hidden"
+            preload={preload}
+            loading={preload ? "eager" : "lazy"}
+            sizes="(max-width: 640px) 50vw, 20vw"
+          />
+          <Image
+            src={back?.url ?? front.url!}
+            alt={back?.alternateName ?? front.alternateName}
+            width={168}
+            height={168}
+            class="w-full hidden group-hover:block"
+            sizes="(max-width: 640px) 50vw, 20vw"
+          />
+        </div>
+      </a>
 
-			<a href={url} aria-label="product link">
-				<div class="relative w-full mb-2.5">
-					<Image
-						src={front.url!}
-						alt={front.alternateName}
-						width={168}
-						height={168}
-						class="w-full group-hover:hidden"
-						preload={preload}
-						loading={preload ? "eager" : "lazy"}
-						sizes="(max-width: 640px) 50vw, 20vw"
-					/>
-					<Image
-						src={back?.url ?? front.url!}
-						alt={back?.alternateName ?? front.alternateName}
-						width={168}
-						height={168}
-						class="w-full hidden group-hover:block"
-						sizes="(max-width: 640px) 50vw, 20vw"
-					/>
-				</div>
-			</a>
-
-			<div class="flex flex-col">
+      <div class="flex flex-col">
         <div class="h-[60px]">
           <Text
             class="line-clamp-2 flex-1 font-bold uppercase leading-7"
@@ -84,43 +85,45 @@ function ProductCard({ product, preload }: Props) {
             {name}
           </Text>
         </div>
-				<div class="flex flex-col mt-4 min-h-[70px]">
-					<Text variant="caption" tone="price" class="font-black text-[16px]">
-						{formatPrice(price, offers!.priceCurrency!)}
-					</Text>
-					{installments ? (
-						<Text class="" variant="list-price" tone="subdued">
-							{installments}
-							{/* {formatPrice(installments, offers!.priceCurrency!)} */}
-						</Text>
-					) : (
-						<Text class="line-through" variant="list-price" tone="subdued">
-							{formatPrice(listPrice, offers!.priceCurrency!)}
-						</Text>
-					)}
-				</div>
-				{seller && (
-					<div
-						class="w-full mt-auto"
-						style={{
-							backgroundColor: "rgba(255, 255, 255, 0.2)",
-							backdropFilter: "blur(2px)",
-						}}
-					>
-						{/* <Sizes {...product} /> */}
-						<Button
-							as="a"
-							href={product.url}
-							variant="quaternary"
-							class="w-full"
-						>
-							Comprar
-						</Button>
-					</div>
-				)}
-			</div>
-		</div>
-	);
+        <div class="flex flex-col mt-4 min-h-[70px]">
+          <Text variant="caption" tone="price" class="font-black text-[16px]">
+            {formatPrice(price, offers!.priceCurrency!)}
+          </Text>
+          {installments
+            ? (
+              <Text class="" variant="list-price" tone="subdued">
+                {installments}
+                {/* {formatPrice(installments, offers!.priceCurrency!)} */}
+              </Text>
+            )
+            : (
+              <Text class="line-through" variant="list-price" tone="subdued">
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </Text>
+            )}
+        </div>
+        {seller && (
+          <div
+            class="w-full mt-auto"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              backdropFilter: "blur(2px)",
+            }}
+          >
+            {/* <Sizes {...product} /> */}
+            <Button
+              as="a"
+              href={product.url}
+              variant="quaternary"
+              class="w-full"
+            >
+              Comprar
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default ProductCard;
