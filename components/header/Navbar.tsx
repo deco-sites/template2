@@ -59,7 +59,8 @@ function Navbar({
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <HeaderButton variant="search" />
           <HeaderSearchMenu searchbar={searchbar} />
-          <Button as="a" variant="icon" href="/login" aria-label="Log in">
+          {/* TODO: Receive this data from VNDA config */}
+          <Button as="a" variant="icon" href="https://template1.vnda.dev/entrar" aria-label="Log in">
             <Icon
               id="icon-account"
               width={33}
