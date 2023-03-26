@@ -1,4 +1,4 @@
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import { useVNDACart } from "deco-sites/std/commerce/vnda/hooks/useVNDACart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import Button from "$store/components/ui/Button.tsx";
 import Text from "$store/components/ui/Text.tsx";
@@ -7,19 +7,21 @@ import { useUI } from "../../sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
 
-const CHECKOUT_URL =
-  "https://bravtexfashionstore.vtexcommercestable.com.br/checkout";
+const getVndaCheckoutUrl = (checkoutToken: string) =>
+  `https://template1.vnda.dev/checkout/${checkoutToken}`;
 
 function Cart() {
   const { displayCart } = useUI();
-  const { cart, loading } = useCart();
+  const { cart, loading } = useVNDACart();
   const isCartEmpty = cart.value?.items.length === 0;
-  const total = cart.value?.totalizers.find((item) => item.id === "Items");
-  const discounts = cart.value?.totalizers.find((item) =>
-    item.id === "Discounts"
-  );
-  const locale = cart.value?.clientPreferencesData.locale;
-  const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  const total = cart.value?.total;
+
+  // TODO: Test an example of VNDA with discounts
+  const discounts = cart.value?.discount_price;
+
+  // TODO: Do we need this?
+  const locale = `pt-BR`;
+  const currencyCode = `BRL`;
 
   if (cart.value === null) {
     return null;
@@ -60,23 +62,23 @@ function Cart() {
       <footer>
         {/* Subtotal */}
         <div class="border-t-1 border-default py-4 flex flex-col gap-4">
-          {discounts?.value && (
+          {!!discounts && (
             <div class="flex justify-between items-center px-4">
               <Text variant="caption">Descontos</Text>
               <Text variant="caption">
-                {formatPrice(discounts.value / 100, currencyCode!, locale)}
+                {formatPrice(discounts, currencyCode!, locale)}
               </Text>
             </div>
           )}
           <Coupon />
         </div>
         {/* Total */}
-        {total?.value && (
+        {total && (
           <div class="border-t-1 border-default pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <Text variant="body">Total</Text>
               <Text variant="heading-3">
-                {formatPrice(total.value / 100, currencyCode!, locale)}
+                {formatPrice(total, currencyCode!, locale)}
               </Text>
             </div>
             <Text tone="subdued" variant="caption">
@@ -88,7 +90,7 @@ function Cart() {
           <a
             class="inline-block w-full"
             target="_blank"
-            href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
+            href={getVndaCheckoutUrl(cart.value?.token)}
           >
             <Button
               class="w-full"

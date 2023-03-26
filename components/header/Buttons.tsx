@@ -1,7 +1,7 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import { useVNDACart } from "deco-sites/std/commerce/vnda/hooks/useVNDACart.ts";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -43,7 +43,7 @@ function MenuButton() {
 
 function CartButton() {
   const { displayCart } = useUI();
-  const { loading, cart } = useCart();
+  const { loading, cart } = useVNDACart();
   const totalItems = cart.value?.items.length || null;
 
   return (
