@@ -9,10 +9,17 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type {
+	ImageObject,
+	ProductDetailsPage,
+} from "deco-sites/std/commerce/types.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 import Logger from "../../islands/Logger.tsx";
+import { useId } from "preact/hooks";
+import Slider from "$store/components/ui/Slider.tsx";
+import SliderControllerJS from "$store/islands/SliderJS.tsx";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
 export interface Props {
 	page: LoaderReturnType<ProductDetailsPage | null>;
@@ -31,11 +38,132 @@ function NotFound() {
 	);
 }
 
+function Thumbs({ images }: { images: ImageObject[] }) {
+	return (
+		<div class="hidden flex-col gap-3 lg:flex">
+			{/* <Slider
+				class="col-span-full row-span-full scrollbar-none gap-3"
+				alignMode="vertical"
+				isThumb
+			> */}
+			{images.map((img, index) => (
+				<div
+					class="cursor-pointer thumb-active"
+					data-slider-thumb-item={index}
+					data-thumb-active={index === 0 ? "true" : "false"}
+				>
+					<Image
+						style={{ aspectRatio: "1 / 1" }}
+						// class="snap-center min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
+						class="w-full"
+						sizes="(max-width: 150px) 100vw, 30vw"
+						src={img.url!}
+						alt={img.alternateName}
+						width={150}
+						height={150}
+						// Preload LCP image for better web vitals
+						preload={true}
+						loading={"eager"}
+					/>
+				</div>
+			))}
+			{/* </Slider> */}
+		</div>
+	);
+}
+
+function Controls() {
+	return (
+		<>
+			<div class="flex items-center justify-center z-10 col-start-1 row-start-2">
+				<Button
+					class="h-12 w-12"
+					variant="icon"
+					data-slide="prev"
+					aria-label="Previous item"
+				>
+					<Icon
+						class="text-default-inverse"
+						size={20}
+						id="ChevronLeft"
+						strokeWidth={3}
+					/>
+				</Button>
+			</div>
+			<div class="flex items-center justify-center z-10 col-start-3 row-start-2">
+				<Button
+					class="h-12 w-12"
+					variant="icon"
+					data-slide="next"
+					aria-label="Next item"
+				>
+					<Icon
+						class="text-default-inverse"
+						size={20}
+						id="ChevronRight"
+						strokeWidth={3}
+					/>
+				</Button>
+			</div>
+		</>
+	);
+}
+
+function ProductImageItem({ img, lcp }: { img: ImageObject; lcp: boolean }) {
+	return (
+		<div class="relative h-[360px] min-w-[360px] lg:(h-[587px] min-w-[587px]) overflow-hidden">
+			<Picture class="w-full" preload={lcp}>
+				<Source
+					media="(max-width: 767px)"
+					fetchPriority={lcp ? "high" : "auto"}
+					src={img.url!}
+					width={360}
+					height={360}
+				/>
+				<Source
+					media="(min-width: 768px)"
+					fetchPriority={lcp ? "high" : "auto"}
+					src={img.url!}
+					width={587}
+					height={587}
+				/>
+				<img
+					class="object-cover w-full sm:h-full"
+					loading={lcp ? "eager" : "lazy"}
+					src={img.url!}
+					alt={img.alternateName}
+					style={{ aspectRatio: "1 / 1" }}
+				/>
+			</Picture>
+		</div>
+	);
+}
+
+function ProductImageCarousel({ images }: { images: ImageObject[] }) {
+	const id = useId();
+	return (
+		<div id={id} class="sm:gap-2 flex flex-row lg:max-w-[703px]">
+			<Thumbs images={images} />
+			<div class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]">
+				<Slider class="col-span-full row-span-full scrollbar-none gap-6">
+					{images?.map((image, index) => (
+						<ProductImageItem img={image} lcp={index === 0} />
+					))}
+				</Slider>
+
+				<Controls />
+				<SliderControllerJS rootId={id} thumbnailsActive />
+			</div>
+		</div>
+	);
+}
+
 function Details({ page }: { page: ProductDetailsPage }) {
 	const { breadcrumbList, product } = page;
 	const { description, productID, offers, image: images, name, gtin } = product;
 	const { price, listPrice, seller, installments } = useOffer(offers);
 	const [front, back] = images ?? [];
+	const imagesSlider = Array(4).fill(front) as ImageObject[];
 
 	return (
 		<Container class="py-5 px-[5%] sm:py-10">
@@ -43,21 +171,8 @@ function Details({ page }: { page: ProductDetailsPage }) {
 			<Logger message="Installments" info={installments} /> */}
 			<div class="flex flex-col md:flex-row md:gap-6">
 				{/* Image Gallery */}
-				<div class="flex flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:w-[65%]">
-					{[front, back ?? front].map((img, index) => (
-						<Image
-							style={{ aspectRatio: "360 / 500" }}
-							class="snap-center min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
-							sizes="(max-width: 640px) 100vw, 30vw"
-							src={img.url!}
-							alt={img.alternateName}
-							width={360}
-							height={500}
-							// Preload LCP image for better web vitals
-							preload={index === 0}
-							loading={index === 0 ? "eager" : "lazy"}
-						/>
-					))}
+				<div class="flex flex-row sm:gap-2 md:w-[65%] items-start">
+					<ProductImageCarousel images={imagesSlider} />
 				</div>
 				{/* Product Info */}
 				<div class="flex-auto pl-5 sm:px-0 md:w-[45%]">
@@ -108,7 +223,9 @@ function Details({ page }: { page: ProductDetailsPage }) {
 							/>
 						</div>
 						<div class="contents md:(block w-[60%])">
-							{seller && <AddToCartButton skuId={productID} sellerId={seller} />}
+							{seller && (
+								<AddToCartButton skuId={productID} sellerId={seller} />
+							)}
 						</div>
 						{/* <Button variant="secondary">
 							<Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}

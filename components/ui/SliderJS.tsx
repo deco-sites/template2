@@ -4,6 +4,7 @@ interface Props {
   rootId: string;
   behavior?: "smooth" | "auto";
   interval?: number;
+  thumbnailsActive?: boolean
 }
 
 const ATTRIBUTES = {
@@ -12,6 +13,8 @@ const ATTRIBUTES = {
   'data-slide="prev"': 'data-slide="prev"',
   'data-slide="next"': 'data-slide="next"',
   "data-dot": "data-dot",
+  "data-slider-thumb-item": "data-slider-thumb-item",
+  "data-thumb-active": "data-thumb-active"
 };
 
 // Percentage of the item that has to be inside the container
@@ -45,18 +48,20 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
   // deno-lint-ignore no-explicit-any
   typeof (x as any).offsetLeft === "number";
 
-const setup = ({ rootId, behavior, interval }: Props) => {
+const setup = ({ rootId, behavior, interval, thumbnailsActive }: Props) => {
   const root = document.getElementById(rootId);
   const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
   const items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
   const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
+  const thumbs = thumbnailsActive ? root?.querySelectorAll(`[${ATTRIBUTES["data-slider-thumb-item"]}]`) : undefined;
 
-  if (!root || !slider || !items || items.length === 0) {
+
+  if (!root || !slider || !items || items.length === 0 || (thumbnailsActive && !thumbs )||(thumbnailsActive && thumbs?.length === 0)) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
-      { root, slider, items },
+      { root, slider, items, thumbs },
     );
 
     return;
@@ -93,6 +98,9 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
       return;
     }
+
+    thumbs?.forEach(thumb => thumb.removeAttribute(ATTRIBUTES["data-thumb-active"]))
+    thumbs?.item(index).setAttribute(ATTRIBUTES["data-thumb-active"], "true");
 
     slider.scrollTo({
       top: 0,
@@ -147,6 +155,14 @@ const setup = ({ rootId, behavior, interval }: Props) => {
     dots?.item(it).addEventListener("click", () => goToItem(it));
   }
 
+
+  thumbs?.forEach(thumb => {
+    const targetIndex = thumb.getAttribute(ATTRIBUTES["data-slider-thumb-item"]) || "0";
+    thumb.addEventListener("click", () => {
+      goToItem(parseInt(targetIndex));
+    })
+  })
+
   prev?.addEventListener("click", onClickPrev);
   next?.addEventListener("click", onClickNext);
 
@@ -158,6 +174,13 @@ const setup = ({ rootId, behavior, interval }: Props) => {
       dots?.item(it).removeEventListener("click", () => goToItem(it));
     }
 
+    thumbs?.forEach(thumb => {
+      const targetIndex = thumb.getAttribute(ATTRIBUTES["data-slider-thumb-item"]) || "0";
+      thumb.removeEventListener("click", () => {
+        goToItem(parseInt(targetIndex));
+      })
+    })
+
     prev?.removeEventListener("click", onClickPrev);
     next?.removeEventListener("click", onClickNext);
 
@@ -167,11 +190,12 @@ const setup = ({ rootId, behavior, interval }: Props) => {
   };
 };
 
-function Slider({ rootId, behavior = "smooth", interval }: Props) {
-  useEffect(() => setup({ rootId, behavior, interval }), [
+function Slider({ rootId, behavior = "smooth", interval, thumbnailsActive = false }: Props) {
+  useEffect(() => setup({ rootId, behavior, interval, thumbnailsActive }), [
     rootId,
     behavior,
     interval,
+    thumbnailsActive
   ]);
 
   return <div data-slider-controller-js />;

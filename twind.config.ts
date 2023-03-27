@@ -237,6 +237,12 @@ const options: Omit<Options, "selfURL"> = {
 			"-webkit-box-orient": "vertical",
 			"-webkit-line-clamp": "2",
 		},
+		"thumb-active": {
+			'&[data-thumb-active="true"]': {
+				"filter": "brightness(0.7)",
+			},
+			"transition": "all 0.4s ease"
+		}
 	},
 };
 
