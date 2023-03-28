@@ -34,16 +34,17 @@ import * as $$$11 from "./sections/ProductDetails.tsx";
 import * as $$$12 from "./sections/ProductGallery.tsx";
 import * as $$$13 from "./sections/ProductShelf.tsx";
 import * as $$$14 from "./sections/SearchControls.tsx";
-import * as $$$15 from "./sections/ThreeGridBanners.tsx";
-import * as $$$16 from "./sections/WhatsApp.tsx";
-import * as $$$17 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$19 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$20 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$21 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$22 from "deco-sites/std/sections/configVNDA.global.tsx";
-import * as $$$23 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$24 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$15 from "./sections/SectionBanner.tsx";
+import * as $$$16 from "./sections/ThreeGridBanners.tsx";
+import * as $$$17 from "./sections/WhatsApp.tsx";
+import * as $$$18 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$20 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$21 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$22 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$23 from "deco-sites/std/sections/configVNDA.global.tsx";
+import * as $$$24 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$25 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -102,16 +103,17 @@ const manifest: DecoManifest = {
     "./sections/ProductGallery.tsx": $$$12,
     "./sections/ProductShelf.tsx": $$$13,
     "./sections/SearchControls.tsx": $$$14,
-    "./sections/ThreeGridBanners.tsx": $$$15,
-    "./sections/WhatsApp.tsx": $$$16,
-    "deco-sites/std/sections/SEO.tsx": $$$17,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$18,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$19,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$20,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$21,
-    "deco-sites/std/sections/configVNDA.global.tsx": $$$22,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$23,
-    "deco-sites/std/sections/configYourViews.tsx": $$$24,
+    "./sections/SectionBanner.tsx": $$$15,
+    "./sections/ThreeGridBanners.tsx": $$$16,
+    "./sections/WhatsApp.tsx": $$$17,
+    "deco-sites/std/sections/SEO.tsx": $$$18,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$19,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$20,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$21,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$22,
+    "deco-sites/std/sections/configVNDA.global.tsx": $$$23,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$24,
+    "deco-sites/std/sections/configYourViews.tsx": $$$25,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1217,6 +1219,112 @@ const manifest: DecoManifest = {
         },
         "required": [
           "page",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/SectionBanner.tsx": {
+      "inputSchema": {
+        "title": " Section Banner",
+        "type": "object",
+        "properties": {
+          "desktop": {
+            "title": "Desktop",
+            "type": "object",
+            "properties": {
+              "src": {
+                "format": "image-uri",
+                "type": "string",
+                "title": "Src",
+              },
+              "width": {
+                "type": [
+                  "number",
+                  "null",
+                ],
+                "title": "Width",
+              },
+              "height": {
+                "type": [
+                  "number",
+                  "null",
+                ],
+                "title": "Height",
+              },
+            },
+            "required": [
+              "src",
+            ],
+            "description": "desktop otimized image",
+          },
+          "mobile": {
+            "title": "Mobile",
+            "type": "object",
+            "properties": {
+              "src": {
+                "format": "image-uri",
+                "type": "string",
+                "title": "Src",
+              },
+              "width": {
+                "type": [
+                  "number",
+                  "null",
+                ],
+                "title": "Width",
+              },
+              "height": {
+                "type": [
+                  "number",
+                  "null",
+                ],
+                "title": "Height",
+              },
+            },
+            "required": [
+              "src",
+            ],
+            "description": "mobile otimized image",
+          },
+          "alt": {
+            "type": "string",
+            "title": "Alt",
+            "description": "Image's alt text",
+          },
+          "upperTitle": {
+            "type": "string",
+            "title": "Upper Title",
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+          "preload": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Preload",
+          },
+          "aspectRatio": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Aspect Ratio",
+          },
+        },
+        "required": [
+          "desktop",
+          "mobile",
+          "alt",
+          "upperTitle",
+          "title",
+          "description",
         ],
       },
       "outputSchema": null,

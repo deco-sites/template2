@@ -89,7 +89,10 @@ const options: Omit<Options, "selfURL"> = {
 				"description-desktop": ["1rem", "1.5"],
 				"name-product": ["2.25rem", "1.2"],
 				subtitle:["18px", "1.2"],
-				submenu: ["1rem", "50px"]
+				submenu: ["1rem", "50px"],
+				"upper-title": ["0.9rem", "1"],
+				"title-section": ["2.375rem", "1.2"],
+				"description-section": ["1rem", "1.5"]
 			},
 			fontWeight: {
 				"heading-1": "500",
@@ -106,7 +109,10 @@ const options: Omit<Options, "selfURL"> = {
 				subtitle: "600",
 				description: "400",
 				"name-product": "900",
-				submenu: "700"
+				submenu: "700",
+				"upper-title": "600",
+				"title-section": "900",
+				"description-section": "400"
 			},
 			animation: {
 				"slide-left": "slide-left-frame 0.4s ease normal",
@@ -142,7 +148,7 @@ const options: Omit<Options, "selfURL"> = {
 		fontFamily: {
 			sans: ["Roboto", "sans-serif"],
 			serif: ["inherit", "serif"],
-			title: ["Noto Sans", "sans-serif"],
+			title: ["Noto Sans", "sans-serif"]
 		},
 		screens: {
 			sm: "640px",
