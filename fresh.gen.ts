@@ -558,6 +558,34 @@ const manifest: DecoManifest = {
             },
             "title": "Content",
           },
+          "alignTitle": {
+            "type": "string",
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "center",
+              },
+              {
+                "type": "string",
+                "const": "left",
+              },
+            ],
+            "title": "Align Title",
+          },
+          "modeWidth": {
+            "type": "string",
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "medium",
+              },
+              {
+                "type": "string",
+                "const": "large",
+              },
+            ],
+            "title": "Mode Width",
+          },
         },
         "required": [
           "content",

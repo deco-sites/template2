@@ -6,15 +6,19 @@ export interface Props {
 		paragraph: string;
 		divider?: boolean;
 	}[];
+	alignTitle?: "center" | "left",
+	modeWidth?: "medium" | "large"
 }
 
-export default function ContextText(props: Props) {
+export default function ContextText({ alignTitle = "center", modeWidth = "medium", ...props}: Props) {
+	const maxWidthClass = modeWidth === "medium" ? "sm:max-w-[920px] 1xl:max-w-[1298px]" : "max-content"
+
 	return (
-		<div class="mb-[3.75rem] flex flex-col px-[5%] mx-auto sm:max-w-[920px] 1xl:max-w-[1298px]">
+		<div class={`mb-[3.75rem] flex flex-col px-[5%] mx-auto ${maxWidthClass}`}>
 			{props.title && (
 				<Text
 					variant="title-section"
-					class="text-center text-black mb-[1.875rem] font-title"
+					class={`text-${alignTitle} text-black mb-[1.875rem] font-title`}
 				>
 					{props.title}
 				</Text>
