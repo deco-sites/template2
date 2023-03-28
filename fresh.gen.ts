@@ -23,28 +23,29 @@ import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/BannerHorizontal.tsx";
 import * as $$$2 from "./sections/BannerIcones.tsx";
 import * as $$$3 from "./sections/Carousel.tsx";
-import * as $$$4 from "./sections/CookieConsent.tsx";
-import * as $$$5 from "./sections/DesignSystem.story.tsx";
-import * as $$$6 from "./sections/Features.tsx";
-import * as $$$7 from "./sections/Footer.tsx";
-import * as $$$8 from "./sections/Header.tsx";
-import * as $$$9 from "./sections/Highlights.tsx";
-import * as $$$10 from "./sections/Posts.tsx";
-import * as $$$11 from "./sections/ProductDetails.tsx";
-import * as $$$12 from "./sections/ProductGallery.tsx";
-import * as $$$13 from "./sections/ProductShelf.tsx";
-import * as $$$14 from "./sections/SearchControls.tsx";
-import * as $$$15 from "./sections/SectionBanner.tsx";
-import * as $$$16 from "./sections/ThreeGridBanners.tsx";
-import * as $$$17 from "./sections/WhatsApp.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$19 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$20 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$21 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$22 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$23 from "deco-sites/std/sections/configVNDA.global.tsx";
-import * as $$$24 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$25 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$4 from "./sections/ContentText.tsx";
+import * as $$$5 from "./sections/CookieConsent.tsx";
+import * as $$$6 from "./sections/DesignSystem.story.tsx";
+import * as $$$7 from "./sections/Features.tsx";
+import * as $$$8 from "./sections/Footer.tsx";
+import * as $$$9 from "./sections/Header.tsx";
+import * as $$$10 from "./sections/Highlights.tsx";
+import * as $$$11 from "./sections/Posts.tsx";
+import * as $$$12 from "./sections/ProductDetails.tsx";
+import * as $$$13 from "./sections/ProductGallery.tsx";
+import * as $$$14 from "./sections/ProductShelf.tsx";
+import * as $$$15 from "./sections/SearchControls.tsx";
+import * as $$$16 from "./sections/SectionBanner.tsx";
+import * as $$$17 from "./sections/ThreeGridBanners.tsx";
+import * as $$$18 from "./sections/WhatsApp.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$20 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$21 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$22 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$23 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$24 from "deco-sites/std/sections/configVNDA.global.tsx";
+import * as $$$25 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$26 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -92,28 +93,29 @@ const manifest: DecoManifest = {
     "./sections/BannerHorizontal.tsx": $$$1,
     "./sections/BannerIcones.tsx": $$$2,
     "./sections/Carousel.tsx": $$$3,
-    "./sections/CookieConsent.tsx": $$$4,
-    "./sections/DesignSystem.story.tsx": $$$5,
-    "./sections/Features.tsx": $$$6,
-    "./sections/Footer.tsx": $$$7,
-    "./sections/Header.tsx": $$$8,
-    "./sections/Highlights.tsx": $$$9,
-    "./sections/Posts.tsx": $$$10,
-    "./sections/ProductDetails.tsx": $$$11,
-    "./sections/ProductGallery.tsx": $$$12,
-    "./sections/ProductShelf.tsx": $$$13,
-    "./sections/SearchControls.tsx": $$$14,
-    "./sections/SectionBanner.tsx": $$$15,
-    "./sections/ThreeGridBanners.tsx": $$$16,
-    "./sections/WhatsApp.tsx": $$$17,
-    "deco-sites/std/sections/SEO.tsx": $$$18,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$19,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$20,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$21,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$22,
-    "deco-sites/std/sections/configVNDA.global.tsx": $$$23,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$24,
-    "deco-sites/std/sections/configYourViews.tsx": $$$25,
+    "./sections/ContentText.tsx": $$$4,
+    "./sections/CookieConsent.tsx": $$$5,
+    "./sections/DesignSystem.story.tsx": $$$6,
+    "./sections/Features.tsx": $$$7,
+    "./sections/Footer.tsx": $$$8,
+    "./sections/Header.tsx": $$$9,
+    "./sections/Highlights.tsx": $$$10,
+    "./sections/Posts.tsx": $$$11,
+    "./sections/ProductDetails.tsx": $$$12,
+    "./sections/ProductGallery.tsx": $$$13,
+    "./sections/ProductShelf.tsx": $$$14,
+    "./sections/SearchControls.tsx": $$$15,
+    "./sections/SectionBanner.tsx": $$$16,
+    "./sections/ThreeGridBanners.tsx": $$$17,
+    "./sections/WhatsApp.tsx": $$$18,
+    "deco-sites/std/sections/SEO.tsx": $$$19,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$20,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$21,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$22,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$23,
+    "deco-sites/std/sections/configVNDA.global.tsx": $$$24,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$25,
+    "deco-sites/std/sections/configYourViews.tsx": $$$26,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -414,6 +416,48 @@ const manifest: DecoManifest = {
           },
         },
         "required": [],
+      },
+      "outputSchema": null,
+    },
+    "./sections/ContentText.tsx": {
+      "inputSchema": {
+        "title": " Content Text",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title",
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "paragraph": {
+                  "type": "string",
+                  "title": "Paragraph",
+                },
+                "divider": {
+                  "type": [
+                    "boolean",
+                    "null",
+                  ],
+                  "title": "Divider",
+                },
+              },
+              "required": [
+                "paragraph",
+              ],
+            },
+            "title": "Content",
+          },
+        },
+        "required": [
+          "content",
+        ],
       },
       "outputSchema": null,
     },
