@@ -10,7 +10,7 @@ export interface Props {
 
 export default function ContextText(props: Props) {
 	return (
-		<div class="my-[3.75rem] flex flex-col px-[5%] mx-auto sm:max-w-[920px] 1xl:max-w-[1298px]">
+		<div class="mb-[3.75rem] flex flex-col px-[5%] mx-auto sm:max-w-[920px] 1xl:max-w-[1298px]">
 			{props.title && (
 				<Text
 					variant="title-section"

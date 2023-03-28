@@ -27,7 +27,7 @@ export interface Props {
 
 export default function SectionBanner(props: Props){
   return (
-    <div class="relative flex flex-col">
+    <div class="relative flex flex-col mb-[3.75rem]">
       <figure>
         <Picture class="w-full h-auto" preload={props.preload}>
           <Source
