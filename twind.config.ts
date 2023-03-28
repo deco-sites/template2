@@ -7,27 +7,27 @@
 import type { Options } from "$fresh/plugins/twind.ts";
 
 const gridCols = ([arg]: string[]) => {
-  const template = Number.isInteger(Number(arg))
-    ? `repeat(${arg}, minmax(0, 1fr))`
-    : arg
-    ? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
-    : arg;
+	const template = Number.isInteger(Number(arg))
+		? `repeat(${arg}, minmax(0, 1fr))`
+		: arg
+		? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
+		: arg;
 
-  return {
-    "grid-template-columns": template,
-  };
+	return {
+		"grid-template-columns": template,
+	};
 };
 
 const gridRows = ([arg]: string[]) => {
-  const template = Number.isInteger(Number(arg))
-    ? `repeat(${arg}, minmax(0, 1fr))`
-    : arg
-    ? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
-    : arg;
+	const template = Number.isInteger(Number(arg))
+		? `repeat(${arg}, minmax(0, 1fr))`
+		: arg
+		? arg.replace(/(^\[)|(\])$/g, "").replace(/_/g, " ")
+		: arg;
 
-  return {
-    "grid-template-rows": template,
-  };
+	return {
+		"grid-template-rows": template,
+	};
 };
 
 const options: Omit<Options, "selfURL"> = {
@@ -162,15 +162,15 @@ const options: Omit<Options, "selfURL"> = {
 	preflight: (preflight) => ({
 		...preflight,
 
-    // Stick footer to the bottom of the page
-    body: {
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "100vh",
-    },
-    'section[data-manifest-key="./sections/Footer.tsx"]': {
-      marginTop: "auto",
-    },
+		// Stick footer to the bottom of the page
+		body: {
+			display: "flex",
+			flexDirection: "column",
+			minHeight: "100vh",
+		},
+		'section[data-manifest-key="./sections/Footer.tsx"]': {
+			marginTop: "auto",
+		},
 
 		// Prevent scroll when modal is open
 		"body[no-scroll]": {
