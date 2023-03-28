@@ -155,6 +155,7 @@ const options: Omit<Options, "selfURL"> = {
 			md: "768px",
 			lg: "1024px",
 			xl: "1280px",
+			"1xl": "1440px",
 			"2xl": "1536px",
 		},
 	},
