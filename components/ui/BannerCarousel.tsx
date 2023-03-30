@@ -157,9 +157,9 @@ function Controls() {
           aria-label="Previous item"
         >
           <Icon
-            class="text-default-inverse"
+            class="text-default"
             size={20}
-            id="ChevronLeft"
+            id="icon-prev"
             strokeWidth={3}
           />
         </Button>
@@ -172,9 +172,9 @@ function Controls() {
           aria-label="Next item"
         >
           <Icon
-            class="text-default-inverse"
+            class="text-default"
             size={20}
-            id="ChevronRight"
+            id="icon-next"
             strokeWidth={3}
           />
         </Button>
