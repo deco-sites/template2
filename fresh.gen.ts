@@ -781,6 +781,14 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "icon-twitter",
                     },
+                    {
+                      "type": "string",
+                      "const": "icon-next",
+                    },
+                    {
+                      "type": "string",
+                      "const": "icon-prev",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -1019,6 +1027,14 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "icon-twitter",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-next",
+                              },
+                              {
+                                "type": "string",
+                                "const": "icon-prev",
                               },
                             ],
                             "title": "Icon",

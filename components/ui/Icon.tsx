@@ -42,7 +42,9 @@ export type AvailableIcons =
   | "icon-filter"
   | "icon-facebook"
   | "icon-whatsapp"
-  | "icon-twitter";
+  | "icon-twitter"
+  | "icon-next"
+  | "icon-prev";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

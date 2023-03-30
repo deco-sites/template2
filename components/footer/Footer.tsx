@@ -51,7 +51,7 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+  return <div class={`py-8 px-4 sm:py-12 sm:px-[5%] ${_class}`}>{children}</div>;
 }
 
 export interface Props {
@@ -69,7 +69,7 @@ function Footer({ sections = [] }: Props) {
 
           <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row  justify-between gap-20">
               {sections.map((section) => (
                 <li>
                   <div>
