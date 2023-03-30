@@ -22,33 +22,34 @@ import * as $$8 from "./islands/Sort.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/BannerHorizontal.tsx";
 import * as $$$2 from "./sections/BannerIcones.tsx";
-import * as $$$3 from "./sections/CargoGrid.tsx";
-import * as $$$4 from "./sections/Carousel.tsx";
-import * as $$$5 from "./sections/ContentSideBySide.tsx";
-import * as $$$6 from "./sections/ContentText.tsx";
-import * as $$$7 from "./sections/CookieConsent.tsx";
-import * as $$$8 from "./sections/DesignSystem.story.tsx";
-import * as $$$9 from "./sections/Features.tsx";
-import * as $$$10 from "./sections/Footer.tsx";
-import * as $$$11 from "./sections/FormAtendimento.tsx";
-import * as $$$12 from "./sections/Header.tsx";
-import * as $$$13 from "./sections/Highlights.tsx";
-import * as $$$14 from "./sections/Posts.tsx";
-import * as $$$15 from "./sections/ProductDetails.tsx";
-import * as $$$16 from "./sections/ProductGallery.tsx";
-import * as $$$17 from "./sections/ProductShelf.tsx";
-import * as $$$18 from "./sections/SearchControls.tsx";
-import * as $$$19 from "./sections/SectionBanner.tsx";
-import * as $$$20 from "./sections/ThreeGridBanners.tsx";
-import * as $$$21 from "./sections/WhatsApp.tsx";
-import * as $$$22 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$23 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$24 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$25 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$26 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$27 from "deco-sites/std/sections/configVNDA.global.tsx";
-import * as $$$28 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$29 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$3 from "./sections/BannerSectionProduct.tsx";
+import * as $$$4 from "./sections/CargoGrid.tsx";
+import * as $$$5 from "./sections/Carousel.tsx";
+import * as $$$6 from "./sections/ContentSideBySide.tsx";
+import * as $$$7 from "./sections/ContentText.tsx";
+import * as $$$8 from "./sections/CookieConsent.tsx";
+import * as $$$9 from "./sections/DesignSystem.story.tsx";
+import * as $$$10 from "./sections/Features.tsx";
+import * as $$$11 from "./sections/Footer.tsx";
+import * as $$$12 from "./sections/FormAtendimento.tsx";
+import * as $$$13 from "./sections/Header.tsx";
+import * as $$$14 from "./sections/Highlights.tsx";
+import * as $$$15 from "./sections/Posts.tsx";
+import * as $$$16 from "./sections/ProductDetails.tsx";
+import * as $$$17 from "./sections/ProductGallery.tsx";
+import * as $$$18 from "./sections/ProductShelf.tsx";
+import * as $$$19 from "./sections/SearchControls.tsx";
+import * as $$$20 from "./sections/SectionBanner.tsx";
+import * as $$$21 from "./sections/ThreeGridBanners.tsx";
+import * as $$$22 from "./sections/WhatsApp.tsx";
+import * as $$$23 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$24 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$25 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$26 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$27 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$28 from "deco-sites/std/sections/configVNDA.global.tsx";
+import * as $$$29 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$30 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -95,33 +96,34 @@ const manifest: DecoManifest = {
     "./sections/BannerGrid.tsx": $$$0,
     "./sections/BannerHorizontal.tsx": $$$1,
     "./sections/BannerIcones.tsx": $$$2,
-    "./sections/CargoGrid.tsx": $$$3,
-    "./sections/Carousel.tsx": $$$4,
-    "./sections/ContentSideBySide.tsx": $$$5,
-    "./sections/ContentText.tsx": $$$6,
-    "./sections/CookieConsent.tsx": $$$7,
-    "./sections/DesignSystem.story.tsx": $$$8,
-    "./sections/Features.tsx": $$$9,
-    "./sections/Footer.tsx": $$$10,
-    "./sections/FormAtendimento.tsx": $$$11,
-    "./sections/Header.tsx": $$$12,
-    "./sections/Highlights.tsx": $$$13,
-    "./sections/Posts.tsx": $$$14,
-    "./sections/ProductDetails.tsx": $$$15,
-    "./sections/ProductGallery.tsx": $$$16,
-    "./sections/ProductShelf.tsx": $$$17,
-    "./sections/SearchControls.tsx": $$$18,
-    "./sections/SectionBanner.tsx": $$$19,
-    "./sections/ThreeGridBanners.tsx": $$$20,
-    "./sections/WhatsApp.tsx": $$$21,
-    "deco-sites/std/sections/SEO.tsx": $$$22,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$23,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$24,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$25,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$26,
-    "deco-sites/std/sections/configVNDA.global.tsx": $$$27,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$28,
-    "deco-sites/std/sections/configYourViews.tsx": $$$29,
+    "./sections/BannerSectionProduct.tsx": $$$3,
+    "./sections/CargoGrid.tsx": $$$4,
+    "./sections/Carousel.tsx": $$$5,
+    "./sections/ContentSideBySide.tsx": $$$6,
+    "./sections/ContentText.tsx": $$$7,
+    "./sections/CookieConsent.tsx": $$$8,
+    "./sections/DesignSystem.story.tsx": $$$9,
+    "./sections/Features.tsx": $$$10,
+    "./sections/Footer.tsx": $$$11,
+    "./sections/FormAtendimento.tsx": $$$12,
+    "./sections/Header.tsx": $$$13,
+    "./sections/Highlights.tsx": $$$14,
+    "./sections/Posts.tsx": $$$15,
+    "./sections/ProductDetails.tsx": $$$16,
+    "./sections/ProductGallery.tsx": $$$17,
+    "./sections/ProductShelf.tsx": $$$18,
+    "./sections/SearchControls.tsx": $$$19,
+    "./sections/SectionBanner.tsx": $$$20,
+    "./sections/ThreeGridBanners.tsx": $$$21,
+    "./sections/WhatsApp.tsx": $$$22,
+    "deco-sites/std/sections/SEO.tsx": $$$23,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$24,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$25,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$26,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$27,
+    "deco-sites/std/sections/configVNDA.global.tsx": $$$28,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$29,
+    "deco-sites/std/sections/configYourViews.tsx": $$$30,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -332,6 +334,52 @@ const manifest: DecoManifest = {
         },
         "required": [
           "bannerIcons",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/BannerSectionProduct.tsx": {
+      "inputSchema": {
+        "title": " Banner Section Product",
+        "type": "object",
+        "properties": {
+          "upperTitle": {
+            "type": "string",
+            "title": "Upper Title",
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+          "desktop": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Desktop",
+            "description": "desktop otimized image",
+          },
+          "mobile": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Mobile",
+            "description": "mobile otimized image",
+          },
+          "alt": {
+            "type": "string",
+            "title": "Alt",
+            "description": "Image's alt text",
+          },
+        },
+        "required": [
+          "upperTitle",
+          "title",
+          "description",
+          "desktop",
+          "mobile",
+          "alt",
         ],
       },
       "outputSchema": null,
