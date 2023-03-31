@@ -7,6 +7,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import Logger from "../../islands/Logger.tsx";
+import VariantSelector from "./ProductVariantSelector.tsx";
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
@@ -39,17 +40,25 @@ interface Props {
 	product: Product;
 	/** Preload card image */
 	preload?: boolean;
+	fullInfo?: boolean;
+	buyTogether?: boolean;
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductCard({
+	product,
+	preload,
+	fullInfo = false,
+	buyTogether = false,
+}: Props) {
 	const { url, productID, name, image: images, offers } = product;
 	const [front, back] = images ?? [];
 	const { listPrice, price, seller, installments } = useOffer(offers);
 
-	
-
 	return (
-		<div id={`product-card-${productID}`} class="w-full group flex flex-col justify-start min-h-[365px]">
+		<div
+			id={`product-card-${productID}`}
+			class="w-full group flex flex-col justify-start min-h-[365px]"
+		>
 			{/* <Logger message="Dados do produto no productCard" info={product} /> */}
 
 			<a href={url} aria-label="product link">
@@ -76,14 +85,14 @@ function ProductCard({ product, preload }: Props) {
 			</a>
 
 			<div class="flex flex-col">
-        <div class="h-[60px]">
-          <Text
-            class="line-clamp-2 flex-1 font-bold uppercase leading-7"
-            variant="body"
-          >
-            {name}
-          </Text>
-        </div>
+				<div class="h-[60px]">
+					<Text
+						class="line-clamp-2 flex-1 font-bold uppercase leading-7"
+						variant="body"
+					>
+						{name}
+					</Text>
+				</div>
 				<div class="flex flex-col mt-4 min-h-[70px]">
 					<Text variant="caption" tone="price" class="font-black text-[16px]">
 						{formatPrice(price, offers!.priceCurrency!)}
@@ -99,7 +108,8 @@ function ProductCard({ product, preload }: Props) {
 						</Text>
 					)}
 				</div>
-				{seller && (
+				{fullInfo && <VariantSelector product={product} />}
+				{seller && buyTogether && (
 					<div
 						class="w-full mt-auto"
 						style={{
