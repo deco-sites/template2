@@ -23,7 +23,7 @@ function ProductShelf({ title, products }: Props) {
 	}
 
 	return (
-		<Container id={id} class="px-[5%] py-10">
+		<Container id={id} class="px-[5%] py-10 relative">
 			<div class="block w-full  text-center background-title py-8 mb-5 sm:(py-9 mb-6)">
 				<Text
 					variant="title"
@@ -46,20 +46,20 @@ function ProductShelf({ title, products }: Props) {
 			</Slider>
 
 			<>
-				<div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-					<div class="absolute right-1/2">
+				{/* <div class="hidden relative sm:block z-10 col-start-1 row-start-3"> */}
+					<div class="absolute left-0 sm:left-[20px] bottom-[50%]">
 						<Button variant="icon" data-slide="prev" aria-label="Previous item">
 							<Icon size={20} id="icon-prev" strokeWidth={3} />
 						</Button>
 					</div>
-				</div>
-				<div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-					<div class="absolute left-1/2">
+				{/* </div> */}
+				{/* <div class="hidden relative sm:block z-10 col-start-3 row-start-3"> */}
+					<div class="absolute right-0 sm:right-[20px] bottom-[50%]">
 						<Button variant="icon" data-slide="next" aria-label="Next item">
 							<Icon size={20} id="icon-next" strokeWidth={3} />
 						</Button>
 					</div>
-				</div>
+				{/* </div> */}
 			</>
 
 			<SliderControllerJS rootId={id} />
