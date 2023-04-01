@@ -249,6 +249,11 @@ const options: Omit<Options, "selfURL"> = {
 				"filter": "brightness(0.7)",
 			},
 			"transition": "all 0.4s ease"
+		},
+		"empty-none": {
+			"&:empty": {
+				"display": "none"
+			}
 		}
 	},
 };
