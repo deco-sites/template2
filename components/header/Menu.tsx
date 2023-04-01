@@ -26,7 +26,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 	);
 
 	const titleSubmenu = (
-		<div class="flex px-[5%] h-[50px] w-full items-center justify-center border-b-1 border-highlight border-opacity-[0.15]">
+		<div class="flex px-[5%] h-[50px] w-full items-center justify-center border-b-1 border-opacity-[0.15]">
 			<Button
 				variant="icon"
 				class="mr-auto"
@@ -58,7 +58,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 	return (
 		<li>
 			<div
-				class={`flex justify-between items-center w-full py-2 px-4 border-b-1 border-highlight border-opacity-[0.15]  ${
+				class={`flex justify-between items-center w-full py-2 px-4 border-b-1 border-opacity-[0.15]  ${
 					level > 0 ? "pl-2" : ""
 				}`}
 				onClick={() => {
@@ -143,7 +143,7 @@ function Menu({ items }: Props) {
 			<ul class="flex flex-col">
 				<li>
 					<a
-						class="flex items-center gap-4 px-[20px] py-[13px] border-b-1 border-highlight border-opacity-[0.15]"
+						class="flex items-center gap-4 px-[20px] py-[13px] border-b-1 border-opacity-[0.15]"
 						href="https://www.deco.cx"
 					>
 						<Icon id="icon-cart" width={20} height={20} strokeWidth={2} />
@@ -181,7 +181,7 @@ function Menu({ items }: Props) {
         </li> */}
 				<li>
 					<a
-						class="flex items-center gap-4 px-[20px] py-[13px] border-b-1 border-highlight border-opacity-[0.15]"
+						class="flex items-center gap-4 px-[20px] py-[13px] border-b-1 border-opacity-[0.15]"
 						href="https://www.deco.cx"
 					>
 						<Icon id="icon-account" width={20} height={20} strokeWidth={2} />
