@@ -3,7 +3,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import QuantitySelector from "$store/components/ui/QuantitySelector.tsx";
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import { useVNDACart } from "deco-sites/std/commerce/vnda/hooks/useVNDACart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 
 interface Props {
@@ -11,42 +11,58 @@ interface Props {
 }
 
 function CartItem({ index }: Props) {
-  const { loading, cart, updateItems } = useCart();
+  // TODO: Update items
+  const { loading, cart, updateItemQuantity } = useVNDACart();
   const item = cart.value!.items[index];
-  const locale = cart.value?.clientPreferencesData.locale;
-  const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  // TODO: In the case of VNDA, probably get this from global config
+  const locale = `pt-BR`;
+  const currencyCode = `BRL`;
+
   const {
-    imageUrl,
-    skuName,
-    sellingPrice,
-    listPrice,
-    name,
+    id,
+    image_url,
+    product_name,
+    variant_name,
+    price,
     quantity,
   } = item;
 
-  const isGift = sellingPrice < 0.01;
+  const imageUrlWithScheme = `https:` + image_url;
+  const listPrice = price;
+  const sellingPrice = price;
+  // TODO: Logic imported from VTEX. Does VNDA supports gifts as well?
+  const isGift = price < 0.01;
 
   return (
     <div class="flex flex-row justify-between items-start gap-4">
       <Image
-        src={imageUrl}
-        alt={skuName}
+        src={imageUrlWithScheme}
+        alt={product_name}
         width={108}
         height={150}
         class="object-cover object-center"
       />
       <div class="flex-grow">
-        <Text variant="body">
-          {name}
-        </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
+        <div className="flex flex-col">
+          <Text variant="body">
+            {product_name}
           </Text>
+          {product_name !== variant_name && (
+            <Text variant="blank" class="text-gray-400 my-1">
+              {variant_name}
+            </Text>
+          )}
+        </div>
+        <div class="flex items-center gap-2">
+          {listPrice !== sellingPrice && (
+            <Text class="line-through" tone="subdued" variant="list-price">
+              {formatPrice(listPrice / 100, currencyCode!, locale)}
+            </Text>
+          )}
           <Text tone="price" variant="caption">
             {isGift
               ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+              : formatPrice(sellingPrice, currencyCode!, locale)}
           </Text>
         </div>
         <div class="mt-6 max-w-min">
@@ -54,12 +70,12 @@ function CartItem({ index }: Props) {
             disabled={loading.value || isGift}
             quantity={quantity}
             onChange={(quantity) =>
-              updateItems({ orderItems: [{ index, quantity }] })}
+              updateItemQuantity({ quantity, itemId: id })}
           />
         </div>
       </div>
       <Button
-        onClick={() => updateItems({ orderItems: [{ index, quantity: 0 }] })}
+        onClick={() => updateItemQuantity({ itemId: id, quantity: 0 })}
         disabled={loading.value || isGift}
         loading={loading.value}
         variant="icon"
