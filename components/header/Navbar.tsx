@@ -38,8 +38,8 @@ function Navbar({
 			</div>
 
 			{/* Desktop Version */}
-			<div class="hidden md:flex flex-row justify-end items-center w-full px-[5%] mx-auto max-width-header">
-				<div class="flex justify-center items-center">
+			<div class="hidden md:flex flex-row justify-end items-center w-full px-[5%] mx-auto max-width-header relative h-[72px] 2xl:max-w-none">
+				<div class="flex justify-center items-center absolute top-0 transform-center w-max">
 					{items.map((item, index) => {
 						if (index === Math.ceil(items.length / 2)) {
 							return (
