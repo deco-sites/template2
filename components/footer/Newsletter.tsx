@@ -16,7 +16,8 @@ function Newsletter() {
 				/>
 				<button
 					class="py-2 px-3 bg-interactive-inverse rounded"
-					type="bgutton" // prevent form's default behavior
+					type="bgutton"
+					alt="Enviar formulário de newsletter" // prevent form's default behavior
 				>
 					<Icon id="icon-next" width={20} height={20} strokeWidth={2} />
 				</button>

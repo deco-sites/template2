@@ -58,6 +58,7 @@ export default function ModalNewsletter(props: Props) {
 							variant="blank"
 							class="absolute top-0 right-0 w-[1.875rem] h-[1.875rem] flex rounded-full m-[0.625rem] bg-[#f3f4f6] text-[1.563rem] text-[#9ca3bb] z-20 cursor-pointer box-border items-center justify-center"
 							onClick={onClose}
+              alt="Fechar modal de newsletter"
 						>
 							×
 						</Button>
@@ -97,7 +98,7 @@ export default function ModalNewsletter(props: Props) {
 									required={true}
 									type="email"
 								/>
-								<Button variant="newsletter" class="mt-[1.25rem]" type="submit">
+								<Button variant="newsletter" class="mt-[1.25rem]" type="submit" alt="Enviar email via modal newsletter">
 									Enviar
 								</Button>
 							</form>
