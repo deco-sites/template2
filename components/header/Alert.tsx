@@ -2,9 +2,7 @@ import Text from "$store/components/ui/Text.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import { useId } from "preact/hooks";
-import { useSignal } from "@preact/signals";
-import Icon from "../ui/Icon.tsx";
-import { useUI } from "../../sdk/useUI.ts";
+import { useUI } from "$store/sdk/useUI.ts";
 import HeaderButton from "./Buttons.tsx";
 
 export interface Props {

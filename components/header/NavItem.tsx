@@ -16,7 +16,7 @@ function NavItem({ item }: { item: INavItem }) {
     <li class="group flex items-center mx-9 py-6 relative">
       <a href={href} class="px-4">
         <Text
-          class="group-hover:border-black border-solid border-b border-white"
+          class="group-hover:border-black border-solid border-b border-transparent"
           variant="menu"
         >
           {label}
@@ -43,14 +43,14 @@ function NavItem({ item }: { item: INavItem }) {
               {children.map((node) => (
                 <li class="mt-4">
                   <a class="hover:underline" href={node.href}>
-                    <Text variant="menu" class="text-white">{node.label}</Text>
+                    <Text variant="menu" tone="default-inverse">{node.label}</Text>
                   </a>
 
                   <ul class="flex flex-col gap-1 mt-1 empty-none">
                     {node.children?.map((leaf) => (
                       <li>
                         <a class="hover:underline" href={leaf.href}>
-                          <Text variant="caption" class="text-white">{leaf.label}</Text>
+                          <Text variant="caption" tone="default-inverse">{leaf.label}</Text>
                         </a>
                       </li>
                     ))}

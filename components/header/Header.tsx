@@ -10,6 +10,7 @@ import { RefObject } from "preact";
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
+import { useUI } from "$store/sdk/useUI.ts";
 
 export interface NavItem {
 	label: string;
@@ -67,6 +68,7 @@ function Header({
 	const [scrollingMode, setScrollingMode] = useState(window.pageYOffset > 0);
 	const menuRef: RefObject<HTMLDivElement> = useRef(null);
 	const [isNotHome, setIsNotHome] = useState(true);
+	const { displaySearchbar } = useUI();
 
 	// lógica do scrolling mode
 	function handleScroll() {
@@ -89,10 +91,10 @@ function Header({
 	return (
 		// <header class={`h-[87px] sm:h-[${headerHeight}]`}>
 		<header class={`${headerClass}`}>
-			<div class="bg-default w-full ">
+			<div class="bg-default w-full">
 				<Alert alerts={alerts} />
 				<div
-					class={`fixed w-full z-50 ${topDistance} transition-default`}
+					class={`fixed w-full z-50 ${topDistance} transition-default hover:bg-white`}
 					ref={menuRef}
 				>
 					<Navbar items={navItems} searchbar={searchbar} />
