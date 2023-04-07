@@ -22,12 +22,18 @@ export default function ModalNewsletter(props: Props) {
 	const delayToClose = useSignal(false);
 
 	useEffect(() => {
-		const consent = globalThis.localStorage.getItem(key);
+		function verify() {
+			const consent = globalThis.localStorage.getItem(key);
 
-		if (consent !== ACCEPTED) {
-			modalOpen.value = true;
-			delayToClose.value = true;
+			if (consent !== ACCEPTED) {
+				modalOpen.value = true;
+				delayToClose.value = true;
+			}
 		}
+
+		globalThis.addEventListener("scroll", verify, { once: true });
+
+		return () => globalThis.removeEventListener("scroll", verify);
 	}, []);
 
 	function onClose() {
@@ -58,7 +64,7 @@ export default function ModalNewsletter(props: Props) {
 							variant="blank"
 							class="absolute top-0 right-0 w-[1.875rem] h-[1.875rem] flex rounded-full m-[0.625rem] bg-[#f3f4f6] text-[1.563rem] text-[#9ca3bb] z-20 cursor-pointer box-border items-center justify-center"
 							onClick={onClose}
-              alt="Fechar modal de newsletter"
+							alt="Fechar modal de newsletter"
 						>
 							×
 						</Button>
@@ -69,6 +75,7 @@ export default function ModalNewsletter(props: Props) {
 								width={341}
 								height={500}
 								class="object-cover object-center h-full w-full md:(absolute top-0 left-0)"
+								loading="lazy"
 							/>
 						</div>
 						<div class="flex flex-col z-10 p-[1.875rem] min-h-[500px] md:(w-[50%])">
@@ -98,7 +105,12 @@ export default function ModalNewsletter(props: Props) {
 									required={true}
 									type="email"
 								/>
-								<Button variant="newsletter" class="mt-[1.25rem]" type="submit" alt="Enviar email via modal newsletter">
+								<Button
+									variant="newsletter"
+									class="mt-[1.25rem]"
+									type="submit"
+									alt="Enviar email via modal newsletter"
+								>
 									Enviar
 								</Button>
 							</form>
