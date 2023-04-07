@@ -61,7 +61,7 @@ const options: Omit<Options, "selfURL"> = {
 				positive: "#1A7346",
 				critical: "#B44125",
 				details: "#b8b08d",
-				submenu: "#312f4f"
+				submenu: "#312f4f",
 			},
 			borderColor: {
 				default: "#D4DBD7",
@@ -88,11 +88,11 @@ const options: Omit<Options, "selfURL"> = {
 				description: ["16px", "1.5"],
 				"description-desktop": ["1rem", "1.5"],
 				"name-product": ["2.25rem", "1.2"],
-				subtitle:["18px", "1.2"],
+				subtitle: ["18px", "1.2"],
 				submenu: ["1rem", "50px"],
 				"upper-title": ["0.9rem", "1"],
 				"title-section": ["2.375rem", "1.2"],
-				"description-section": ["1rem", "1.5"]
+				"description-section": ["1rem", "1.5"],
 			},
 			fontWeight: {
 				"heading-1": "500",
@@ -112,13 +112,15 @@ const options: Omit<Options, "selfURL"> = {
 				submenu: "700",
 				"upper-title": "600",
 				"title-section": "900",
-				"description-section": "400"
+				"description-section": "400",
 			},
 			animation: {
 				"slide-left": "slide-left-frame 0.4s ease normal",
 				"slide-right": "slide-right-frame 0.4s ease normal",
 				"slide-bottom": "slide-bottom-frame 0.4s ease normal",
-				"slide-to-hide": "slide-hide-element 0.4s ease normal"
+				"slide-to-hide": "slide-hide-element 0.4s ease normal",
+				"fade-out": "fade-out 500ms ease-out both",
+				"fade-in": "fade-in 500ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
 			},
 			keyframes: {
 				"slide-left-frame": {
@@ -136,6 +138,24 @@ const options: Omit<Options, "selfURL"> = {
 				"slide-hide-element": {
 					from: { transform: "translateX(0)" },
 					to: { transform: "translateX(100%)" },
+				},
+				"fade-out": {
+					from: {
+						opacity: 1,
+					},
+					to: {
+						opacity: 0,
+						visibility: "hidden",
+						pointerEvents: "none",
+					},
+				},
+				"fade-in": {
+					from: {
+						opacity: 0,
+					},
+					to: {
+						opacity: 1,
+					},
 				}
 			},
 			boxShadow: {
@@ -143,12 +163,13 @@ const options: Omit<Options, "selfURL"> = {
 				default: "0px 1px 4px 0px #0000001F",
 				md: "0px 1px 5px 0px #00000024",
 				lg: "0px 4px 10px 0px #0000001F",
+				modal: "0 0 13px 0 rgba(0,0,0,.32941176470588235)",
 			},
 		},
 		fontFamily: {
 			sans: ["Roboto", "sans-serif"],
 			serif: ["inherit", "serif"],
-			title: ["Noto Sans", "sans-serif"]
+			title: ["Noto Sans", "sans-serif"],
 		},
 		screens: {
 			sm: "640px",
@@ -246,18 +267,18 @@ const options: Omit<Options, "selfURL"> = {
 		},
 		"thumb-active": {
 			'&[data-thumb-active="true"]': {
-				"filter": "brightness(0.7)",
+				filter: "brightness(0.7)",
 			},
-			"transition": "all 0.4s ease"
+			transition: "all 0.4s ease",
 		},
 		"empty-none": {
 			"&:empty": {
-				"display": "none"
-			}
+				display: "none",
+			},
 		},
 		"transition-default": {
-			"transition": "all 0.4s ease"
-		}
+			transition: "all 0.4s ease",
+		},
 	},
 };
 

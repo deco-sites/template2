@@ -24,7 +24,8 @@ const variants = {
   blank: "",
   quaternary:
     "h-[43px] text-[14px] py-2.5 px-6 bg-transparent flex items-center justify-center text-accent text-uppercase border-1 border-accent text font-medium transition-[.3s] hover:bg-accent hover:text-white disabled:border-default active:bg-accent active:text-white  active:border-transparent disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none sm:text-[16px] sm:h-[51px] sm:px-7 sm:py-3",
-  "add-to-cart": "h-[38px]  py-2.5 px-6 border border-black text-black hover:bg-accent hover:text-white hover:border-accent md:h-12"
+  "add-to-cart": "h-[38px]  py-2.5 px-6 border border-black text-black hover:bg-accent hover:text-white hover:border-accent md:h-12",
+  newsletter: "h-[43px] text-[14px] py-2.5 px-6 bg-transparent flex items-center justify-center text-accent text-uppercase border-1 border-black text-black font-medium transition-[.3s] hover:border-transparent hover:bg-accent hover:text-white disabled:border-default active:bg-accent active:text-white  active:border-transparent disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none sm:text-[16px] sm:h-[51px] sm:px-7 sm:py-3"
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(({

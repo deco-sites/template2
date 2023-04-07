@@ -17,9 +17,10 @@ import * as $$3 from "./islands/HeaderButton.tsx";
 import * as $$4 from "./islands/HeaderModals.tsx";
 import * as $$5 from "./islands/HeaderSearchMenu.tsx";
 import * as $$6 from "./islands/Logger.tsx";
-import * as $$7 from "./islands/SearchControls.tsx";
-import * as $$8 from "./islands/SliderJS.tsx";
-import * as $$9 from "./islands/Sort.tsx";
+import * as $$7 from "./islands/ModalNewsletter.tsx";
+import * as $$8 from "./islands/SearchControls.tsx";
+import * as $$9 from "./islands/SliderJS.tsx";
+import * as $$10 from "./islands/Sort.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/BannerHorizontal.tsx";
 import * as $$$2 from "./sections/BannerIcones.tsx";
@@ -35,23 +36,24 @@ import * as $$$11 from "./sections/Footer.tsx";
 import * as $$$12 from "./sections/FormAtendimento.tsx";
 import * as $$$13 from "./sections/Header.tsx";
 import * as $$$14 from "./sections/Highlights.tsx";
-import * as $$$15 from "./sections/Posts.tsx";
-import * as $$$16 from "./sections/ProductBuyTogether.tsx";
-import * as $$$17 from "./sections/ProductDetails.tsx";
-import * as $$$18 from "./sections/ProductGallery.tsx";
-import * as $$$19 from "./sections/ProductShelf.tsx";
-import * as $$$20 from "./sections/SearchControls.tsx";
-import * as $$$21 from "./sections/SectionBanner.tsx";
-import * as $$$22 from "./sections/ThreeGridBanners.tsx";
-import * as $$$23 from "./sections/WhatsApp.tsx";
-import * as $$$24 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$25 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$26 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$27 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$28 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$29 from "deco-sites/std/sections/configVNDA.global.tsx";
-import * as $$$30 from "deco-sites/std/sections/configVTEX.global.tsx";
-import * as $$$31 from "deco-sites/std/sections/configYourViews.tsx";
+import * as $$$15 from "./sections/ModalNewsletter.tsx";
+import * as $$$16 from "./sections/Posts.tsx";
+import * as $$$17 from "./sections/ProductBuyTogether.tsx";
+import * as $$$18 from "./sections/ProductDetails.tsx";
+import * as $$$19 from "./sections/ProductGallery.tsx";
+import * as $$$20 from "./sections/ProductShelf.tsx";
+import * as $$$21 from "./sections/SearchControls.tsx";
+import * as $$$22 from "./sections/SectionBanner.tsx";
+import * as $$$23 from "./sections/ThreeGridBanners.tsx";
+import * as $$$24 from "./sections/WhatsApp.tsx";
+import * as $$$25 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$26 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$27 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$28 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$29 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$30 from "deco-sites/std/sections/configVNDA.global.tsx";
+import * as $$$31 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$32 from "deco-sites/std/sections/configYourViews.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -91,9 +93,10 @@ const manifest: DecoManifest = {
     "./islands/HeaderModals.tsx": $$4,
     "./islands/HeaderSearchMenu.tsx": $$5,
     "./islands/Logger.tsx": $$6,
-    "./islands/SearchControls.tsx": $$7,
-    "./islands/SliderJS.tsx": $$8,
-    "./islands/Sort.tsx": $$9,
+    "./islands/ModalNewsletter.tsx": $$7,
+    "./islands/SearchControls.tsx": $$8,
+    "./islands/SliderJS.tsx": $$9,
+    "./islands/Sort.tsx": $$10,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -111,23 +114,24 @@ const manifest: DecoManifest = {
     "./sections/FormAtendimento.tsx": $$$12,
     "./sections/Header.tsx": $$$13,
     "./sections/Highlights.tsx": $$$14,
-    "./sections/Posts.tsx": $$$15,
-    "./sections/ProductBuyTogether.tsx": $$$16,
-    "./sections/ProductDetails.tsx": $$$17,
-    "./sections/ProductGallery.tsx": $$$18,
-    "./sections/ProductShelf.tsx": $$$19,
-    "./sections/SearchControls.tsx": $$$20,
-    "./sections/SectionBanner.tsx": $$$21,
-    "./sections/ThreeGridBanners.tsx": $$$22,
-    "./sections/WhatsApp.tsx": $$$23,
-    "deco-sites/std/sections/SEO.tsx": $$$24,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$25,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$26,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$27,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$28,
-    "deco-sites/std/sections/configVNDA.global.tsx": $$$29,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$30,
-    "deco-sites/std/sections/configYourViews.tsx": $$$31,
+    "./sections/ModalNewsletter.tsx": $$$15,
+    "./sections/Posts.tsx": $$$16,
+    "./sections/ProductBuyTogether.tsx": $$$17,
+    "./sections/ProductDetails.tsx": $$$18,
+    "./sections/ProductGallery.tsx": $$$19,
+    "./sections/ProductShelf.tsx": $$$20,
+    "./sections/SearchControls.tsx": $$$21,
+    "./sections/SectionBanner.tsx": $$$22,
+    "./sections/ThreeGridBanners.tsx": $$$23,
+    "./sections/WhatsApp.tsx": $$$24,
+    "deco-sites/std/sections/SEO.tsx": $$$25,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$26,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$27,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$28,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$29,
+    "deco-sites/std/sections/configVNDA.global.tsx": $$$30,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$31,
+    "deco-sites/std/sections/configYourViews.tsx": $$$32,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1330,6 +1334,39 @@ const manifest: DecoManifest = {
         },
         "required": [
           "title",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/ModalNewsletter.tsx": {
+      "inputSchema": {
+        "title": " Modal Newsletter",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+          "alt": {
+            "type": "string",
+            "title": "Alt",
+            "description": "mobile otimized image",
+          },
+        },
+        "required": [
+          "title",
+          "description",
+          "image",
+          "alt",
         ],
       },
       "outputSchema": null,

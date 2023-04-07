@@ -4,8 +4,6 @@ import Text from "$store/components/ui/Text.tsx";
 import { useId } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-import { context } from "$live/live.ts";
-import Logger from "../../islands/Logger.tsx";
 import Button from "../ui/Button.tsx";
 import Icon from "../ui/Icon.tsx";
 
@@ -24,7 +22,6 @@ function ProductBuyTogether({ title, products }: Props) {
 
 	return (
 		<Container id={id} class="px-[5%] py-10">
-			<Logger info={context} message={"Bora ver o context da página"} />
 			<div class="block w-full text-center background-title py-8 mb-5 sm:(py-9 mb-6)">
 				<Text
 					variant="title"
