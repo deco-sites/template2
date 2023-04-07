@@ -254,6 +254,9 @@ const options: Omit<Options, "selfURL"> = {
 			"&:empty": {
 				"display": "none"
 			}
+		},
+		"transition-default": {
+			"transition": "all 0.4s ease"
 		}
 	},
 };

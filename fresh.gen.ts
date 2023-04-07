@@ -12,13 +12,14 @@ import * as $3 from "./routes/api/[...catchall].tsx";
 import * as $4 from "./routes/index.tsx";
 import * as $$0 from "./islands/AddToCartButton.tsx";
 import * as $$1 from "./islands/Filters.tsx";
-import * as $$2 from "./islands/HeaderButton.tsx";
-import * as $$3 from "./islands/HeaderModals.tsx";
-import * as $$4 from "./islands/HeaderSearchMenu.tsx";
-import * as $$5 from "./islands/Logger.tsx";
-import * as $$6 from "./islands/SearchControls.tsx";
-import * as $$7 from "./islands/SliderJS.tsx";
-import * as $$8 from "./islands/Sort.tsx";
+import * as $$2 from "./islands/Header.tsx";
+import * as $$3 from "./islands/HeaderButton.tsx";
+import * as $$4 from "./islands/HeaderModals.tsx";
+import * as $$5 from "./islands/HeaderSearchMenu.tsx";
+import * as $$6 from "./islands/Logger.tsx";
+import * as $$7 from "./islands/SearchControls.tsx";
+import * as $$8 from "./islands/SliderJS.tsx";
+import * as $$9 from "./islands/Sort.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/BannerHorizontal.tsx";
 import * as $$$2 from "./sections/BannerIcones.tsx";
@@ -85,13 +86,14 @@ const manifest: DecoManifest = {
   islands: {
     "./islands/AddToCartButton.tsx": $$0,
     "./islands/Filters.tsx": $$1,
-    "./islands/HeaderButton.tsx": $$2,
-    "./islands/HeaderModals.tsx": $$3,
-    "./islands/HeaderSearchMenu.tsx": $$4,
-    "./islands/Logger.tsx": $$5,
-    "./islands/SearchControls.tsx": $$6,
-    "./islands/SliderJS.tsx": $$7,
-    "./islands/Sort.tsx": $$8,
+    "./islands/Header.tsx": $$2,
+    "./islands/HeaderButton.tsx": $$3,
+    "./islands/HeaderModals.tsx": $$4,
+    "./islands/HeaderSearchMenu.tsx": $$5,
+    "./islands/Logger.tsx": $$6,
+    "./islands/SearchControls.tsx": $$7,
+    "./islands/SliderJS.tsx": $$8,
+    "./islands/Sort.tsx": $$9,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
