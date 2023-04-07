@@ -35,14 +35,14 @@ function ProductBuyTogether({ title, products }: Props) {
 				</Text>
 			</div>
 
-			<div class="flex flex-col items-center gap-4 md:(grid grid-cols-[22%_4%_22%_4%_22%_4%_22%] grid-rows-[1fr] grid-flow-col items-start)">
+			<div class="flex flex-col items-center gap-4 md:(grid grid-cols-[22%_4%_22%_4%_22%_4%_22%] grid-rows-[1fr] grid-flow-col items-start gap-0)">
 				{products?.map((product, index) => (
 					<div
 						class={`w-full order-${index * 2 + 1} md:(col-start-${
 							index * 2 + 1
 						})`}
 					>
-						<ProductCard product={product} />
+						<ProductCard product={product} buyTogether={true} />
 					</div>
 				))}
 				<Button
@@ -63,9 +63,9 @@ function ProductBuyTogether({ title, products }: Props) {
 				>
 					=
 				</Button>
-				<div class="order-7 md:col-start-7 top-[10%] relative flex flex-col w-full">
-					<h4 class="text-[1.125rem] uppercase font-bold mb-[0.625rem] text-center" >Compre os 3 produtos por</h4>
-					<span class="block text-[2.375rem] uppercase font-bold mb-[0.625rem] text-center">R$ 98,97</span>
+				<div class="order-7 md:col-start-7 top-[10%] relative flex flex-col w-full ">
+					<h4 class="text-[1.125rem] uppercase font-bold mb-[0.625rem] text-center md:text-left" >Compre os 3 produtos por</h4>
+					<span class="block text-[2.375rem] uppercase font-bold mb-[0.625rem] text-center  md:text-left">R$ 98,97</span>
 					
 					<Button variant="quaternary" class="gap-2 group w-full mt-[1.25rem]">
 						<Icon id="icon-cart" width={20} height={20} strokeWidth={3} class="group-hover:text-white" />

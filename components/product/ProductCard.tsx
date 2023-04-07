@@ -109,7 +109,7 @@ function ProductCard({
 					)}
 				</div>
 				{fullInfo && <VariantSelector product={product} />}
-				{seller && buyTogether && (
+				{seller && !buyTogether && (
 					<div
 						class="w-full mt-auto"
 						style={{
